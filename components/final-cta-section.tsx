@@ -20,9 +20,7 @@ export function FinalCtaSection() {
           <div className="bg-white border border-border rounded-2xl p-6 sm:p-8 text-left opacity-60">
             <h3 className="text-lg sm:text-xl font-bold text-muted-foreground mb-4">Opção 1: Fechar esta página</h3>
             <ul className="space-y-3 text-sm sm:text-base text-muted-foreground">
-              <li>Continuar perdendo horas limpando</li>
               <li>Continuar com dor nas costas</li>
-              <li>Continuar com alergias e poeira</li>
               <li>Continuar gastando com aspiradores ruins</li>
               <li>Perder esta oferta de 64% OFF</li>
             </ul>

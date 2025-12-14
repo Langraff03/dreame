@@ -48,8 +48,8 @@ export function OrderBump({ selected, onToggle }: OrderBumpProps) {
                 Adicione o Kit de Substituição Completo
               </h3>
               <p className="text-sm sm:text-base text-muted-foreground leading-relaxed">
-                Garanta a manutenção perfeita do seu DREAME H12 PRO por mais de 1 ano com o kit oficial de peças de
-                reposição
+                Mantenha a potência de limpeza de um produto novo por mais de 1 ano e evite a frustração de ter que
+                procurar peças depois.
               </p>
             </div>
           </div>
