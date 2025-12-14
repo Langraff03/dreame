@@ -156,7 +156,7 @@ export function OfferSection() {
               {/* CTA principal abre modal para escolha de cor e kit */}
               <Button
                 size="lg"
-                className="w-full text-lg md:text-2xl py-7 md:py-9 bg-gradient-to-r from-[#E53935] to-[#C62828] hover:from-[#C62828] hover:to-[#B71C1C] text-white font-black shadow-premium-lg shadow-[#E53935]/40 transition-all duration-300 hover:scale-[1.02] rounded-xl md:rounded-2xl"
+                className="w-full text-base sm:text-lg md:text-xl py-5 sm:py-6 md:py-8 px-4 sm:px-6 bg-gradient-to-r from-[#E53935] to-[#C62828] hover:from-[#C62828] hover:to-[#B71C1C] text-white font-black shadow-premium-lg shadow-[#E53935]/40 transition-all duration-300 hover:scale-[1.02] rounded-xl md:rounded-2xl text-center leading-snug whitespace-normal flex-wrap"
                 onClick={() => setShowCheckout(true)}
               >
                 <Sparkles className="w-5 h-5 md:w-6 md:h-6 mr-2 md:mr-3" />

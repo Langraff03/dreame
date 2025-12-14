@@ -73,8 +73,8 @@ export function CheckoutModal({ open, initialKitSelected = false, onClose, onCon
                     active ? "border-primary shadow-lg shadow-primary/20" : "border-border"
                   } overflow-hidden bg-white transition-all hover:shadow-md focus:outline-none focus:ring-2 focus:ring-primary/50`}
                 >
-                  <div className="relative bg-muted/40" style={{ aspectRatio: "3 / 4" }}>
-                    <Image src={option.image} alt={option.label} fill className="object-contain" />
+                  <div className="relative bg-muted/40 h-64 sm:h-52">
+                    <Image src={option.image} alt={option.label} fill className="object-contain" sizes="100vw" />
                     {active && (
                       <div className="absolute inset-0 bg-gradient-to-br from-primary/10 to-primary/5 flex items-center justify-center">
                         <Check className="w-7 h-7 text-primary drop-shadow" />
