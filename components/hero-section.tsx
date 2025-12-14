@@ -14,7 +14,14 @@ export function HeroSection() {
       <header className="w-full py-4 md:py-5 px-4 md:px-6 flex items-center justify-between border-b border-black bg-black sticky top-0 z-50">
         <div className="flex items-center gap-2 md:gap-3">
           <div className="relative w-16 h-16 md:w-20 md:h-20">
-            <Image src="/images/DREAME.jpg" alt="DREAME" fill className="object-contain" priority />
+            <Image
+              src="/images/DREAME.jpg"
+              alt="DREAME"
+              fill
+              className="object-contain"
+              priority
+              sizes="(min-width: 1024px) 80px, (min-width: 768px) 72px, 64px"
+            />
           </div>
           <div>
             <span className="font-black text-lg md:text-xl tracking-tight text-white block leading-none">DREAME</span>

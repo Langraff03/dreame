@@ -95,6 +95,7 @@ export function FinalCtaSection() {
               <img
                 src="https://www.profissionaldeecommerce.com.br/wp-content/uploads/2022/08/gsb-3-300x126.png"
                 alt="Site seguro - Google Safe Browsing"
+                loading="lazy"
                 className="h-12 object-contain"
               />
             </div>
@@ -102,6 +103,7 @@ export function FinalCtaSection() {
               <img
                 src="https://blog.mundolipedema.com.br/wp-content/uploads/2022/06/certificado1-1024x1024.png"
                 alt="Certificado de segurança"
+                loading="lazy"
                 className="h-12 w-12 object-contain"
               />
             </div>

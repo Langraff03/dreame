@@ -39,6 +39,7 @@ export function StickyCtaBar() {
       <button
         onClick={() => setIsDismissed(true)}
         className="absolute top-2 md:top-3 right-2 md:right-3 text-muted-foreground hover:text-foreground transition-colors bg-white/50 rounded-full p-1"
+        aria-label="Fechar barra de oferta"
       >
         <X className="w-4 h-4 md:w-5 md:h-5" />
       </button>
