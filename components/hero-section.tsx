@@ -91,7 +91,7 @@ export function HeroSection() {
         <div className="mt-8 md:mt-12 flex flex-col gap-4 md:gap-5 w-full max-w-lg px-4">
           <Button
             size="lg"
-            className="w-full text-sm sm:text-base md:text-xl px-5 sm:px-8 md:px-10 py-5 sm:py-6 md:py-8 bg-gradient-to-r from-[#E53935] to-[#C62828] hover:from-[#C62828] hover:to-[#B71C1C] text-white font-black shadow-premium-lg shadow-[#E53935]/40 transition-all duration-300 hover:scale-[1.02] hover:-translate-y-0.5 rounded-xl whitespace-normal leading-tight flex flex-wrap items-center justify-center gap-2"
+            className="w-full text-sm sm:text-lg md:text-xl px-6 sm:px-8 md:px-10 py-5 sm:py-6 md:py-8 bg-gradient-to-r from-[#E53935] to-[#C62828] hover:from-[#C62828] hover:to-[#B71C1C] text-white font-black shadow-premium-lg shadow-[#E53935]/40 transition-all duration-300 hover:scale-[1.02] hover:-translate-y-0.5 rounded-xl whitespace-nowrap leading-tight inline-flex items-center justify-center gap-2"
             onClick={() => setShowCheckout(true)}
           >
             <span className="text-center">QUERO MEU DREAME H12 PRO COM 64% OFF</span>
@@ -122,4 +122,3 @@ export function HeroSection() {
     </section>
   )
 }
-
