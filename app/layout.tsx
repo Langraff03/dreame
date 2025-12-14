@@ -3,6 +3,7 @@ import type { Metadata } from "next"
 import { Inter, Geist_Mono } from "next/font/google"
 import { Analytics } from "@vercel/analytics/next"
 import "./globals.css"
+import { Protection } from "@/components/protection"
 
 const inter = Inter({
   subsets: ["latin"],
@@ -36,12 +37,12 @@ export default function RootLayout({
   return (
     <html lang="pt-BR" className={`${inter.variable} ${geistMono.variable}`}>
       <body className="font-sans antialiased">
+        <Protection />
         {children}
         <Analytics />
       </body>
     </html>
   )
 }
-
 
 
