@@ -9,17 +9,17 @@ export function FinalCtaSection() {
   const [showCheckout, setShowCheckout] = useState(false)
 
   return (
-    <section className="py-20 px-6 bg-gradient-to-b from-white to-[#F5F7FA]">
+    <section className="py-16 sm:py-20 px-4 sm:px-6 bg-gradient-to-b from-white to-[#F5F7FA]">
       <div className="max-w-4xl mx-auto text-center">
-        <h2 className="text-3xl md:text-5xl font-black text-foreground mb-6 text-balance">
+        <h2 className="text-3xl md:text-5xl font-black text-foreground mb-6 text-balance px-1">
           Você Tem <span className="text-primary">2 Opções</span> Agora
         </h2>
 
-        <div className="grid md:grid-cols-2 gap-8 my-12">
+        <div className="grid md:grid-cols-2 gap-6 sm:gap-8 my-10 sm:my-12">
           {/* Option 1 - Bad Choice */}
-          <div className="bg-white border border-border rounded-2xl p-8 text-left opacity-60">
-            <h3 className="text-xl font-bold text-muted-foreground mb-4">Opção 1: Fechar esta página</h3>
-            <ul className="space-y-3 text-muted-foreground">
+          <div className="bg-white border border-border rounded-2xl p-6 sm:p-8 text-left opacity-60">
+            <h3 className="text-lg sm:text-xl font-bold text-muted-foreground mb-4">Opção 1: Fechar esta página</h3>
+            <ul className="space-y-3 text-sm sm:text-base text-muted-foreground">
               <li>Continuar perdendo horas limpando</li>
               <li>Continuar com dor nas costas</li>
               <li>Continuar com alergias e poeira</li>
@@ -29,14 +29,14 @@ export function FinalCtaSection() {
           </div>
 
           {/* Option 2 - Good Choice - borda azul */}
-          <div className="bg-white border-2 border-primary rounded-2xl p-8 text-left relative shadow-lg">
-            <div className="absolute -top-3 left-1/2 -translate-x-1/2">
-              <span className="bg-primary text-white px-4 py-1 rounded-full text-sm font-bold">
+          <div className="bg-white border-2 border-primary rounded-2xl p-6 sm:p-8 text-left relative shadow-lg">
+            <div className="absolute -top-4 sm:-top-3 left-1/2 -translate-x-1/2">
+              <span className="bg-primary text-white px-5 sm:px-6 py-1.5 rounded-full text-xs sm:text-sm font-bold whitespace-nowrap shadow-md">
                 ESCOLHA INTELIGENTE
               </span>
             </div>
-            <h3 className="text-xl font-bold text-foreground mb-4">Opção 2: Garantir seu DREAME H12 PRO</h3>
-            <ul className="space-y-3 text-foreground">
+            <h3 className="text-lg sm:text-xl font-bold text-foreground mb-4">Opção 2: Garantir seu DREAME H12 PRO</h3>
+            <ul className="space-y-3 sm:space-y-4 text-foreground text-sm sm:text-base">
               <li className="flex items-center gap-2">
                 <Star className="w-4 h-4 text-[#00BFA6]" />
                 Limpar a casa em metade do tempo
@@ -64,7 +64,7 @@ export function FinalCtaSection() {
         <div className="max-w-md mx-auto">
           <Button
             size="lg"
-            className="w-full text-sm sm:text-lg md:text-xl py-5 sm:py-6 md:py-7 px-4 sm:px-6 bg-[#E53935] hover:bg-[#C62828] text-white font-bold shadow-lg shadow-[#E53935]/30 transition-all hover:scale-[1.02] text-center leading-tight whitespace-normal flex flex-col sm:flex-row items-center justify-center gap-1 sm:gap-2"
+            className="w-full text-sm sm:text-lg md:text-xl py-5 sm:py-6 md:py-7 px-4 sm:px-6 bg-[#E53935] hover:bg-[#C62828] text-white font-bold shadow-lg shadow-[#E53935]/30 transition-all hover:scale-[1.02] text-center leading-tight whitespace-normal flex flex-col sm:flex-row items-center justify-center gap-1 sm:gap-2 md:gap-3 rounded-xl"
             onClick={() => setShowCheckout(true)}
           >
             <span className="block">QUERO O DREAME H12 PRO AGORA</span>
@@ -72,7 +72,7 @@ export function FinalCtaSection() {
             <ArrowRight className="w-6 h-6 sm:ml-1" />
           </Button>
 
-          <div className="flex items-center justify-center gap-6 mt-6 text-sm text-muted-foreground">
+          <div className="flex flex-wrap items-center justify-center gap-3 sm:gap-6 mt-6 text-xs sm:text-sm text-muted-foreground text-center">
             <span className="flex items-center gap-2">
               <ShieldCheck className="w-4 h-4 text-[#27AE60]" />7 dias de garantia
             </span>
@@ -85,7 +85,7 @@ export function FinalCtaSection() {
 
         <p className="mt-12 text-muted-foreground text-sm max-w-xl mx-auto">
           P.S.: Esta oferta com <strong className="text-[#E53935]">64% de desconto</strong> é válida apenas enquanto
-          durar o estoque promocional. Não sabemos quando teremos novamente. Se você está lendo isso, ainda dá tempo —
+          durar o estoque promocional. Não sabemos quando teremos novamente. Se você está lendo isso, ainda dá tempo -
           mas não deixe para depois.
         </p>
 

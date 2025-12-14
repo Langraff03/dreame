@@ -35,7 +35,7 @@ export function StickyCtaBar() {
   if (!isVisible || isDismissed) return null
 
   return (
-    <div className="fixed bottom-0 left-0 right-0 bg-white/95 backdrop-blur-2xl border-t-4 border-primary/30 py-3 md:py-5 px-3 md:px-6 z-[60] shadow-premium-lg animate-slide-in">
+    <div className="fixed bottom-0 left-0 right-0 bg-white/95 backdrop-blur-2xl border-t-4 border-primary/30 pt-3 md:pt-5 pb-[calc(0.75rem+env(safe-area-inset-bottom))] md:pb-[calc(1.25rem+env(safe-area-inset-bottom))] px-3 md:px-6 z-[60] shadow-premium-lg animate-slide-in">
       <button
         onClick={() => setIsDismissed(true)}
         className="absolute top-2 md:top-3 right-2 md:right-3 text-muted-foreground hover:text-foreground transition-colors bg-white/50 rounded-full p-1"

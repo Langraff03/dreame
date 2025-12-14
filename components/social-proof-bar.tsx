@@ -38,9 +38,9 @@ export function SocialProofBar() {
 
   return (
     <section className="bg-card border-y border-border py-4">
-      <div className="max-w-6xl mx-auto px-6">
-        <div className="flex items-center justify-center gap-4 text-sm">
-          <div className="flex items-center gap-2 animate-pulse">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6">
+        <div className="flex flex-wrap items-center justify-center gap-2 sm:gap-4 text-xs sm:text-sm text-center sm:text-left">
+          <div className="flex flex-wrap items-center justify-center sm:justify-start gap-1.5 sm:gap-2 animate-pulse">
             <ShoppingBag className="w-5 h-5 text-primary" />
             <span className="text-foreground font-medium">{buyer.name}</span>
             <span className="text-muted-foreground">de</span>

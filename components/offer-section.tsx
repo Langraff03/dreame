@@ -109,7 +109,7 @@ export function OfferSection() {
         </div>
 
         <div className="bg-white border-4 border-primary/30 rounded-2xl md:rounded-[2rem] overflow-hidden shadow-premium-lg hover:shadow-2xl transition-shadow">
-          <div className="bg-gradient-to-r from-primary to-secondary px-8 py-5 text-center relative overflow-hidden">
+          <div className="bg-gradient-to-r from-primary to-secondary px-5 sm:px-8 py-5 text-center relative overflow-hidden">
             <div
               className="absolute inset-0 bg-white/10 animate-shimmer"
               style={{
@@ -122,7 +122,7 @@ export function OfferSection() {
             </p>
           </div>
 
-          <div className="p-6 md:p-10 lg:p-14">
+          <div className="p-5 sm:p-8 md:p-10 lg:p-14">
             <div className="text-center mb-10 md:mb-12">
               <div className="inline-flex items-center gap-2 md:gap-3 mb-3 flex-wrap justify-center">
                 <p className="text-muted-foreground line-through text-lg md:text-2xl">De R$ 699,00</p>
@@ -156,18 +156,19 @@ export function OfferSection() {
               {/* CTA principal abre modal para escolha de cor e kit */}
               <Button
                 size="lg"
-                className="w-full text-base sm:text-lg md:text-xl py-5 sm:py-6 md:py-8 px-4 sm:px-6 bg-gradient-to-r from-[#E53935] to-[#C62828] hover:from-[#C62828] hover:to-[#B71C1C] text-white font-black shadow-premium-lg shadow-[#E53935]/40 transition-all duration-300 hover:scale-[1.02] rounded-xl md:rounded-2xl text-center leading-snug whitespace-normal flex-wrap"
+                className="w-full text-sm sm:text-lg md:text-xl py-5 sm:py-6 md:py-8 px-4 sm:px-6 bg-gradient-to-r from-[#E53935] to-[#C62828] hover:from-[#C62828] hover:to-[#B71C1C] text-white font-black shadow-premium-lg shadow-[#E53935]/40 transition-all duration-300 hover:scale-[1.02] rounded-xl md:rounded-2xl text-center leading-tight whitespace-normal flex items-center justify-center gap-2 sm:gap-3"
                 onClick={() => setShowCheckout(true)}
               >
-                <Sparkles className="w-5 h-5 md:w-6 md:h-6 mr-2 md:mr-3" />
-                <span className="hidden sm:inline">
+                <Sparkles className="hidden sm:block w-5 h-5 md:w-6 md:h-6" />
+                <span className="hidden sm:block flex-1 text-center">
                   {orderBumpSelected
-                    ? "QUERO O ASPIRADOR + KIT DE SUBSTITUIÇÃO"
+                    ? "QUERO O ASPIRADOR + KIT DE SUBSTITUI????O"
                     : "SIM! QUERO MEU DREAME H12 PRO COM 64% OFF"}
                 </span>
-                <span className="sm:hidden">
+                <span className="sm:hidden flex-1 text-center">
                   {orderBumpSelected ? "ASPIRADOR + KIT" : "QUERO COM 64% OFF"}
                 </span>
+                <span className="hidden sm:block w-5 md:w-6" aria-hidden />
               </Button>
 
               <div className="w-full text-xs md:text-sm text-foreground text-center bg-white border border-border rounded-lg py-3 px-4">
@@ -176,7 +177,7 @@ export function OfferSection() {
                   : "Kit de substituição opcional por R$ 97. Ative acima se quiser levar junto."}
               </div>
 
-              <div className="w-full text-base md:text-lg py-4 md:py-5 bg-gradient-to-r from-[#00BFA6] to-[#00A57A] text-white font-bold border border-[#00A57A]/30 shadow-md shadow-[#00BFA6]/30 rounded-xl md:rounded-2xl text-center">
+              <div className="w-full text-sm sm:text-base md:text-lg py-4 sm:py-5 bg-gradient-to-r from-[#00BFA6] to-[#00A57A] text-white font-bold border border-[#00A57A]/30 shadow-md shadow-[#00BFA6]/30 rounded-xl md:rounded-2xl text-center leading-tight">
                 PAGAR COM PIX E GANHAR 5% (selecione no checkout)
               </div>
 
@@ -186,23 +187,23 @@ export function OfferSection() {
                 oferta
               </p>
 
-              <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 text-xs md:text-sm text-foreground">
-                <div className="flex items-center justify-center gap-2 bg-white border-2 border-primary/30 rounded-lg px-3 py-2 shadow-sm">
+              <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 sm:gap-4 text-sm md:text-sm text-foreground">
+                <div className="flex items-center justify-center gap-2 bg-white border-2 border-primary/30 rounded-lg px-3 py-2 shadow-sm text-center">
                   <span className="font-semibold text-primary">Pix</span>
                   <span className="font-medium">tem 5% off extra</span>
                 </div>
-                <div className="flex items-center justify-center gap-2 bg-white border-2 border-primary/30 rounded-lg px-3 py-2 shadow-sm">
+                <div className="flex items-center justify-center gap-2 bg-white border-2 border-primary/30 rounded-lg px-3 py-2 shadow-sm text-center">
                   <span className="font-semibold text-primary">Envio</span>
                   <span className="font-medium">Brasil: 7 a 15 dias úteis</span>
                 </div>
-                <div className="flex items-center justify-center gap-2 bg-white border-2 border-primary/30 rounded-lg px-3 py-2 shadow-sm">
+                <div className="flex items-center justify-center gap-2 bg-white border-2 border-primary/30 rounded-lg px-3 py-2 shadow-sm text-center">
                   <span className="font-semibold text-primary">Garantia</span>
                   <span className="font-medium">total + suporte em português</span>
                 </div>
               </div>
             </div>
 
-            <div className="mt-10 md:mt-12 grid grid-cols-3 gap-4 md:gap-6">
+            <div className="mt-10 md:mt-12 grid grid-cols-1 sm:grid-cols-3 gap-4 md:gap-6">
               <div className="flex flex-col items-center gap-2 md:gap-3 group">
                 <div className="w-12 h-12 md:w-16 md:h-16 bg-[#27AE60]/10 rounded-xl md:rounded-2xl flex items-center justify-center group-hover:scale-110 transition-transform">
                   <Truck className="w-6 h-6 md:w-8 md:h-8 text-[#27AE60]" />
