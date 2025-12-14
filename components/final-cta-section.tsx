@@ -24,7 +24,7 @@ export function FinalCtaSection() {
               <li>Continuar com dor nas costas</li>
               <li>Continuar com alergias e poeira</li>
               <li>Continuar gastando com aspiradores ruins</li>
-              <li>Perder esta oferta de 53% OFF</li>
+              <li>Perder esta oferta de 64% OFF</li>
             </ul>
           </div>
 
@@ -55,7 +55,7 @@ export function FinalCtaSection() {
               </li>
               <li className="flex items-center gap-2">
                 <Star className="w-4 h-4 text-[#00BFA6]" />
-                53% OFF + Frete Grátis + Brindes
+                64% OFF + Frete Grátis + Brindes
               </li>
             </ul>
           </div>
@@ -67,7 +67,7 @@ export function FinalCtaSection() {
             className="w-full text-xl py-8 bg-[#E53935] hover:bg-[#C62828] text-white font-bold shadow-lg shadow-[#E53935]/30 transition-all hover:scale-[1.02]"
             onClick={() => setShowCheckout(true)}
           >
-            QUERO O DREAME H12 PRO AGORA
+            QUERO O DREAME H12 PRO AGORA COM 64% OFF
             <ArrowRight className="w-6 h-6 ml-2" />
           </Button>
 
@@ -83,7 +83,7 @@ export function FinalCtaSection() {
         </div>
 
         <p className="mt-12 text-muted-foreground text-sm max-w-xl mx-auto">
-          P.S.: Esta oferta com <strong className="text-[#E53935]">53% de desconto</strong> é válida apenas enquanto
+          P.S.: Esta oferta com <strong className="text-[#E53935]">64% de desconto</strong> é válida apenas enquanto
           durar o estoque promocional. Não sabemos quando teremos novamente. Se você está lendo isso, ainda dá tempo —
           mas não deixe para depois.
         </p>

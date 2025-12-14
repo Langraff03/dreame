@@ -88,7 +88,7 @@ export function LivePurchasePopup() {
 
         <div className="mt-3 pt-3 border-t border-border">
           <p className="text-xs text-muted-foreground">
-            Acabou de garantir o <strong className="text-foreground">DREAME H12 PRO</strong> com 53% OFF
+            Acabou de garantir o <strong className="text-foreground">DREAME H12 PRO</strong> com 64% OFF
           </p>
         </div>
       </div>

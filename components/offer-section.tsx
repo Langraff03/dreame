@@ -118,7 +118,7 @@ export function OfferSection() {
               }}
             />
             <p className="text-white font-black text-xl tracking-wide relative z-10">
-              53% DE DESCONTO + FRETE GRÁTIS + BRINDES EXCLUSIVOS
+              64% DE DESCONTO + FRETE GRÁTIS + BRINDES EXCLUSIVOS
             </p>
           </div>
 
@@ -163,10 +163,10 @@ export function OfferSection() {
                 <span className="hidden sm:inline">
                   {orderBumpSelected
                     ? "QUERO O ASPIRADOR + KIT DE SUBSTITUIÇÃO"
-                    : "SIM! QUERO MEU DREAME H12 PRO COM 53% OFF"}
+                    : "SIM! QUERO MEU DREAME H12 PRO COM 64% OFF"}
                 </span>
                 <span className="sm:hidden">
-                  {orderBumpSelected ? "ASPIRADOR + KIT" : "QUERO COM 53% OFF"}
+                  {orderBumpSelected ? "ASPIRADOR + KIT" : "QUERO COM 64% OFF"}
                 </span>
               </Button>
 

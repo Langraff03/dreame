@@ -78,8 +78,8 @@ export function StickyCtaBar() {
           onClick={() => setShowCheckout(true)}
         >
           <ShoppingCart className="w-4 h-4 md:w-5 md:h-5 mr-2" />
-          <span className="hidden sm:inline">COMPRAR COM 53% OFF</span>
-          <span className="sm:hidden">COMPRAR AGORA</span>
+          <span className="hidden sm:inline">COMPRAR COM 64% OFF</span>
+          <span className="sm:hidden">COMPRAR 64% OFF</span>
           <Sparkles className="w-3 h-3 md:w-4 md:h-4 ml-2" />
         </Button>
       </div>

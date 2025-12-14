@@ -10,8 +10,8 @@ export function HeroSection() {
   const [showCheckout, setShowCheckout] = useState(false)
 
   return (
-    <section className="relative min-h-screen flex flex-col pt-0 bg-gradient-to-b from-[#0B0F14] via-[#0D1117] to-[#0B0F14]">
-      <header className="w-full py-4 md:py-5 px-4 md:px-6 flex items-center justify-between border-b border-black bg-black sticky top-0 z-50">
+    <section className="relative min-h-screen flex flex-col pt-12 sm:pt-0 bg-gradient-to-b from-[#0B0F14] via-[#0D1117] to-[#0B0F14]">
+      <header className="w-full py-4 md:py-5 px-4 md:px-6 flex items-center justify-between border-b border-black bg-black sticky top-[38px] z-50">
         <div className="flex items-center gap-2 md:gap-3">
           <div className="relative w-16 h-16 md:w-20 md:h-20">
             <Image src="/images/DREAME.jpg" alt="DREAME" fill className="object-contain" priority />
@@ -49,8 +49,8 @@ export function HeroSection() {
 
         <div className="inline-flex items-center gap-2 md:gap-2.5 bg-gradient-to-r from-[#E53935] to-[#C62828] border border-[#E53935]/40 text-white px-4 md:px-6 py-2.5 md:py-3 rounded-full text-xs md:text-sm font-bold mb-6 md:mb-8 shadow-lg shadow-[#E53935]/40">
           <Zap className="w-4 h-4 md:w-5 md:h-5" />
-          <span className="hidden sm:inline">ÚLTIMAS 47 UNIDADES COM 53% OFF</span>
-          <span className="sm:hidden">47 UNIDADES - 53% OFF</span>
+          <span className="hidden sm:inline">ÚLTIMAS 47 UNIDADES COM 64% OFF</span>
+          <span className="sm:hidden">47 UNIDADES - 64% OFF</span>
         </div>
 
         <h1 className="text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-black tracking-tighter text-white max-w-5xl leading-[1.1] text-balance mb-4 md:mb-6 px-2">
@@ -87,8 +87,8 @@ export function HeroSection() {
             className="text-base md:text-xl px-8 md:px-10 py-6 md:py-8 bg-gradient-to-r from-[#E53935] to-[#C62828] hover:from-[#C62828] hover:to-[#B71C1C] text-white font-black shadow-premium-lg shadow-[#E53935]/40 transition-all duration-300 hover:scale-[1.02] hover:-translate-y-0.5 rounded-xl"
             onClick={() => setShowCheckout(true)}
           >
-            <span className="hidden sm:inline">QUERO MEU DREAME H12 PRO COM 53% OFF</span>
-            <span className="sm:hidden">QUERO COM 53% OFF</span>
+            <span className="hidden sm:inline">QUERO MEU DREAME H12 PRO COM 64% OFF</span>
+            <span className="sm:hidden">QUERO COM 64% OFF</span>
           </Button>
           <div className="flex items-center justify-center gap-2 text-[#AAB4C3] text-xs md:text-sm bg-white/5 backdrop-blur-sm rounded-lg px-3 md:px-4 py-2.5 md:py-3 border border-white/10">
             <ShieldCheck className="w-4 h-4 md:w-5 md:h-5 text-[#27AE60] flex-shrink-0" />
