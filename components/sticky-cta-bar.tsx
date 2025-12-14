@@ -75,12 +75,12 @@ export function StickyCtaBar() {
 
         <Button
           size="lg"
-          className="w-full sm:w-auto bg-gradient-to-r from-[#E53935] to-[#C62828] hover:from-[#C62828] hover:to-[#B71C1C] text-white font-black px-6 md:px-10 py-5 md:py-6 shadow-premium-lg shadow-[#E53935]/40 transition-all duration-300 hover:scale-[1.02] rounded-xl text-sm md:text-base"
+          className="w-full sm:w-auto bg-gradient-to-r from-[#E53935] to-[#C62828] hover:from-[#C62828] hover:to-[#B71C1C] text-white font-black px-4 sm:px-6 md:px-10 py-4 sm:py-5 md:py-6 shadow-premium-lg shadow-[#E53935]/40 transition-all duration-300 hover:scale-[1.02] rounded-xl text-xs sm:text-sm md:text-base leading-tight whitespace-normal flex items-center justify-center gap-2 flex-wrap"
           onClick={() => setShowCheckout(true)}
         >
-          <ShoppingCart className="w-4 h-4 md:w-5 md:h-5 mr-2" />
-          <span className="text-center">QUERO MEU DREAME H12 PRO COM 64% OFF</span>
-          <Sparkles className="w-3 h-3 md:w-4 md:h-4 ml-2" />
+          <ShoppingCart className="w-4 h-4 md:w-5 md:h-5" />
+          <span className="flex-1 text-center">QUERO MEU DREAME H12 PRO COM 64% OFF</span>
+          <Sparkles className="w-3 h-3 md:w-4 md:h-4" />
         </Button>
       </div>
 
