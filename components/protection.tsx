@@ -4,16 +4,6 @@
 import { useEffect } from "react"
 
 const BLOCK_HTML = "<h1>Acesso Negado</h1><p>Ferramentas de clonagem nao sao permitidas.</p>"
-const allowedHosts = [
-  "localhost",
-  "127.0.0.1",
-  "[::1]",
-  ".vercel.app",
-  ".onrender.com",
-  ".netlify.app",
-  "ohneschmerzenleben.blog",
-]
-
 const uaBlocked = [
   /HTTrack/i,
   /WebCopier/i,
@@ -33,13 +23,6 @@ const uaBlocked = [
   /Puppeteer/i,
   /Playwright/i,
 ]
-
-const isAllowedHost = (host: string | null) => {
-  if (!host) return false
-  return allowedHosts.some((entry) =>
-    entry.startsWith(".") ? host.endsWith(entry) : host === entry,
-  )
-}
 
 export function Protection() {
   useEffect(() => {
@@ -61,7 +44,7 @@ export function Protection() {
       document.documentElement.style.visibility = "visible"
     }
 
-    if (location.protocol === "file:" || !isAllowedHost(location.hostname)) {
+    if (location.protocol === "file:") {
       blockPage("<h1>Acesso Negado</h1><p>Host nao autorizado.</p>")
       return
     }
