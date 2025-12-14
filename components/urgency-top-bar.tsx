@@ -13,16 +13,17 @@ type UrgencySnapshot = {
 
 type Listener = () => void
 
-const STORAGE_KEY = "dreame-urgency-state"
+// nova versão para resetar estado anterior e alinhar estoque/tempo
+const STORAGE_KEY = "dreame-urgency-state-v3"
 
 const rand = (min: number, max: number) => Math.floor(Math.random() * (max - min + 1)) + min
 
 function createSnapshot(): UrgencySnapshot {
   const now = Date.now()
-  const endsAt = now + rand(48, 82) * 60 * 1000 // 48–82 min de janela realista
-  const initialStock = rand(36, 62)
-  const stockCount = Math.max(initialStock - rand(3, 10), 12)
-  const minStock = Math.max(4, Math.round(initialStock * 0.12))
+  const endsAt = now + rand(110, 170) * 60 * 1000 // janela maior para a oferta
+  const initialStock = 419
+  const stockCount = initialStock
+  const minStock = 60
   const viewerCount = rand(118, 207)
 
   return { endsAt, viewerCount, stockCount, initialStock, minStock }
@@ -61,7 +62,7 @@ const sharedState = {
           const now = Date.now()
           const endsAt = parsed.endsAt > now ? parsed.endsAt : base.endsAt
           const initialStock = parsed.initialStock ?? base.initialStock
-          const minStock = parsed.minStock ?? Math.max(4, Math.round(initialStock * 0.12))
+          const minStock = parsed.minStock ?? base.minStock
           const stockCount =
             parsed.stockCount && parsed.stockCount > 0
               ? Math.max(minStock, Math.min(parsed.stockCount, initialStock))
@@ -129,11 +130,10 @@ const sharedState = {
     if (this.salesTimeoutId) return
 
     const scheduleSale = () => {
-      const delay = rand(22000, 55000)
+      const delay = 40000
       this.salesTimeoutId = window.setTimeout(() => {
         if (this.state.stockCount > this.state.minStock) {
-          const saleSize = Math.random() < 0.28 ? 2 : 1
-          this.updateStock(this.state.stockCount - saleSize)
+          this.updateStock(this.state.stockCount - 1)
         }
         scheduleSale()
       }, delay)
@@ -154,7 +154,7 @@ function formatTimeLeft(target: number) {
 
 export function UrgencyTopBar() {
   const [isMounted, setIsMounted] = useState(false)
-  const [timeLeft, setTimeLeft] = useState(() => formatTimeLeft(sharedState.state.endsAt))
+  const [timeLeft, setTimeLeft] = useState({ hours: 0, minutes: 0, seconds: 0 })
   const [viewerCount, setViewerCount] = useState(sharedState.viewerCount)
   const [stockCount, setStockCount] = useState(sharedState.stockCount)
 

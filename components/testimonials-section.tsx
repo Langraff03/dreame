@@ -161,42 +161,7 @@ export function TestimonialsSection() {
           </div>
         </div>
 
-        <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-4 md:gap-6">
-          {testimonials
-            .filter((_, i) => i !== currentIndex)
-            .map((testimonial, index) => (
-              <div
-                key={index}
-                className="bg-white border border-border rounded-xl md:rounded-2xl p-4 md:p-6 hover:border-primary/50 transition-colors cursor-pointer hover:shadow-lg"
-                onClick={() => setCurrentIndex(testimonials.indexOf(testimonial))}
-              >
-                <div className="flex items-center gap-3 md:gap-4 mb-3 md:mb-4">
-                  <div className="relative w-12 h-12 md:w-14 md:h-14 rounded-full overflow-hidden border-2 border-primary/30 flex-shrink-0">
-                    <Image
-                      src={testimonial.image || "/placeholder.svg"}
-                      alt={testimonial.name}
-                      fill
-                      className="object-cover"
-                    />
-                  </div>
-                  <div className="min-w-0">
-                    <div className="flex items-center gap-2">
-                      <p className="font-bold text-foreground text-sm md:text-base truncate">{testimonial.name}</p>
-                      {testimonial.verified && (
-                        <CheckCircle className="w-3 h-3 md:w-4 md:h-4 text-[#27AE60] flex-shrink-0" />
-                      )}
-                    </div>
-                    <div className="flex gap-0.5">
-                      {Array.from({ length: testimonial.rating }).map((_, i) => (
-                        <Star key={i} className="w-3 h-3 md:w-4 md:h-4 fill-yellow-500 text-yellow-500" />
-                      ))}
-                    </div>
-                  </div>
-                </div>
-                <p className="text-xs md:text-sm text-muted-foreground line-clamp-3">{testimonial.text}</p>
-              </div>
-            ))}
-        </div>
+        {/* Cards inferiores removidos para evitar duplicação em mobile */}
 
         <div className="mt-12 md:mt-16 grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6 text-center">
           {[

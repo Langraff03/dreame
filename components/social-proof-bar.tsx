@@ -5,11 +5,23 @@ import { ShoppingBag, MapPin } from "lucide-react"
 
 const recentBuyers = [
   { name: "Maria S.", city: "São Paulo", time: "2 min" },
-  { name: "João P.", city: "Rio de Janeiro", time: "5 min" },
-  { name: "Ana L.", city: "Belo Horizonte", time: "8 min" },
-  { name: "Carlos M.", city: "Curitiba", time: "12 min" },
-  { name: "Fernanda R.", city: "Salvador", time: "15 min" },
-  { name: "Pedro H.", city: "Brasília", time: "18 min" },
+  { name: "João P.", city: "Rio de Janeiro", time: "4 min" },
+  { name: "Ana L.", city: "Belo Horizonte", time: "6 min" },
+  { name: "Carlos M.", city: "Curitiba", time: "7 min" },
+  { name: "Fernanda R.", city: "Salvador", time: "9 min" },
+  { name: "Pedro H.", city: "Brasília", time: "11 min" },
+  { name: "Juliana T.", city: "Porto Alegre", time: "13 min" },
+  { name: "Rafael D.", city: "Recife", time: "14 min" },
+  { name: "Camila V.", city: "Fortaleza", time: "16 min" },
+  { name: "Bruno A.", city: "Florianópolis", time: "17 min" },
+  { name: "Larissa F.", city: "Campinas", time: "19 min" },
+  { name: "Diego N.", city: "Goiânia", time: "21 min" },
+  { name: "Patrícia C.", city: "Vitória", time: "22 min" },
+  { name: "Leonardo R.", city: "São Luís", time: "24 min" },
+  { name: "Bianca M.", city: "João Pessoa", time: "26 min" },
+  { name: "Eduardo G.", city: "Maceió", time: "27 min" },
+  { name: "Marina K.", city: "Uberlândia", time: "28 min" },
+  { name: "André V.", city: "Belém", time: "29 min" },
 ]
 
 export function SocialProofBar() {
@@ -18,7 +30,7 @@ export function SocialProofBar() {
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentIndex((prev) => (prev + 1) % recentBuyers.length)
-    }, 4000)
+    }, 3000 + Math.floor(Math.random() * 2000)) // 3-5s para maior naturalidade
     return () => clearInterval(interval)
   }, [])
 

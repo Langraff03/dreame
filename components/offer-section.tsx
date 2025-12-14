@@ -4,6 +4,8 @@ import { Button } from "@/components/ui/button"
 import { Truck, ShieldCheck, Clock, Flame, CreditCard, Sparkles } from "lucide-react"
 import { useEffect, useState } from "react"
 import { OrderBump } from "./order-bump"
+import { CheckoutModal } from "./checkout-modal"
+import { sharedState } from "./urgency-top-bar"
 
 const included = [
   "DREAME H12 PRO Aspirador Vertical",
@@ -17,23 +19,37 @@ const included = [
   "Garantia Estendida de 1 Ano",
 ]
 
+const formatTimeLeft = (target: number) => {
+  const now = Date.now()
+  const diff = Math.max(0, target - now)
+  const hours = Math.floor(diff / (1000 * 60 * 60))
+  const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60))
+  const seconds = Math.floor((diff % (1000 * 60)) / 1000)
+  return { hours, minutes, seconds }
+}
+
 export function OfferSection() {
-  const [timeLeft, setTimeLeft] = useState({ hours: 2, minutes: 47, seconds: 33 })
+  const [timeLeft, setTimeLeft] = useState({ hours: 0, minutes: 0, seconds: 0 })
+  const [orderBumpSelected, setOrderBumpSelected] = useState(false)
+  const [showCheckout, setShowCheckout] = useState(false)
+  const [stockCount, setStockCount] = useState(sharedState.stockCount)
 
   useEffect(() => {
+    sharedState.init()
+    setTimeLeft(formatTimeLeft(sharedState.state.endsAt))
+
     const timer = setInterval(() => {
-      setTimeLeft((prev) => {
-        if (prev.seconds > 0) {
-          return { ...prev, seconds: prev.seconds - 1 }
-        } else if (prev.minutes > 0) {
-          return { ...prev, minutes: prev.minutes - 1, seconds: 59 }
-        } else if (prev.hours > 0) {
-          return { hours: prev.hours - 1, minutes: 59, seconds: 59 }
-        }
-        return prev
-      })
+      setTimeLeft(formatTimeLeft(sharedState.state.endsAt))
     }, 1000)
     return () => clearInterval(timer)
+  }, [])
+
+  useEffect(() => {
+    setStockCount(sharedState.stockCount)
+    const unsubscribe = sharedState.subscribe(() => {
+      setStockCount(sharedState.stockCount)
+    })
+    return unsubscribe
   }, [])
 
   return (
@@ -133,23 +149,57 @@ export function OfferSection() {
             </div>
 
             <div className="mb-8 md:mb-10">
-              <OrderBump />
+              <OrderBump selected={orderBumpSelected} onToggle={setOrderBumpSelected} />
             </div>
 
             <div className="space-y-4 md:space-y-5">
+              {/* CTA principal abre modal para escolha de cor e kit */}
               <Button
                 size="lg"
                 className="w-full text-lg md:text-2xl py-7 md:py-9 bg-gradient-to-r from-[#E53935] to-[#C62828] hover:from-[#C62828] hover:to-[#B71C1C] text-white font-black shadow-premium-lg shadow-[#E53935]/40 transition-all duration-300 hover:scale-[1.02] rounded-xl md:rounded-2xl"
+                onClick={() => setShowCheckout(true)}
               >
                 <Sparkles className="w-5 h-5 md:w-6 md:h-6 mr-2 md:mr-3" />
-                <span className="hidden sm:inline">SIM! QUERO MEU DREAME H12 PRO COM 53% OFF</span>
-                <span className="sm:hidden">QUERO COM 53% OFF</span>
+                <span className="hidden sm:inline">
+                  {orderBumpSelected
+                    ? "QUERO O ASPIRADOR + KIT DE SUBSTITUIÇÃO"
+                    : "SIM! QUERO MEU DREAME H12 PRO COM 53% OFF"}
+                </span>
+                <span className="sm:hidden">
+                  {orderBumpSelected ? "ASPIRADOR + KIT" : "QUERO COM 53% OFF"}
+                </span>
               </Button>
 
+              <div className="w-full text-xs md:text-sm text-foreground text-center bg-white border border-border rounded-lg py-3 px-4">
+                {orderBumpSelected
+                  ? "Você selecionou o kit de substituição por R$ 97. O checkout incluirá aspirador + kit."
+                  : "Kit de substituição opcional por R$ 97. Ative acima se quiser levar junto."}
+              </div>
+
+              <div className="w-full text-base md:text-lg py-4 md:py-5 bg-gradient-to-r from-[#00BFA6] to-[#00A57A] text-white font-bold border border-[#00A57A]/30 shadow-md shadow-[#00BFA6]/30 rounded-xl md:rounded-2xl text-center">
+                PAGAR COM PIX E GANHAR 5% (selecione no checkout)
+              </div>
+
               <p className="text-center text-xs md:text-sm text-muted-foreground bg-[#E53935]/5 py-2.5 md:py-3 px-3 md:px-4 rounded-xl border border-[#E53935]/10">
-                Estoque limitado: apenas <strong className="text-[#E53935] text-sm md:text-base">47 unidades</strong>{" "}
-                disponíveis nesta oferta
+                Estoque limitado: apenas{" "}
+                <strong className="text-[#E53935] text-sm md:text-base">{stockCount} unidades</strong> disponíveis nesta
+                oferta
               </p>
+
+              <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 text-xs md:text-sm text-foreground">
+                <div className="flex items-center justify-center gap-2 bg-white border-2 border-primary/30 rounded-lg px-3 py-2 shadow-sm">
+                  <span className="font-semibold text-primary">Pix</span>
+                  <span className="font-medium">tem 5% off extra</span>
+                </div>
+                <div className="flex items-center justify-center gap-2 bg-white border-2 border-primary/30 rounded-lg px-3 py-2 shadow-sm">
+                  <span className="font-semibold text-primary">Envio</span>
+                  <span className="font-medium">Brasil: 7 a 15 dias úteis</span>
+                </div>
+                <div className="flex items-center justify-center gap-2 bg-white border-2 border-primary/30 rounded-lg px-3 py-2 shadow-sm">
+                  <span className="font-semibold text-primary">Garantia</span>
+                  <span className="font-medium">total + suporte em português</span>
+                </div>
+              </div>
             </div>
 
             <div className="mt-10 md:mt-12 grid grid-cols-3 gap-4 md:gap-6">
@@ -194,6 +244,19 @@ export function OfferSection() {
           </div>
         </div>
       </div>
+
+      <CheckoutModal
+        open={showCheckout}
+        initialKitSelected={orderBumpSelected}
+        onClose={() => setShowCheckout(false)}
+        onConfirm={({ withKit }) => {
+          setOrderBumpSelected(withKit)
+          const url = withKit
+            ? "https://seguro.dreamebrasil.com/api/public/shopify?product=1649147895347&store=16491"
+            : "https://seguro.dreamebrasil.com/api/public/shopify?product=1649145998974&store=16491"
+          window.location.href = url
+        }}
+      />
     </section>
   )
 }

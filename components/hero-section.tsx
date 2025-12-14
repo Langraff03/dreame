@@ -1,10 +1,14 @@
 ﻿"use client"
 
 import Image from "next/image"
+import { useState } from "react"
 import { Button } from "@/components/ui/button"
 import { ShieldCheck, Truck, Star, Zap, Award } from "lucide-react"
+import { CheckoutModal } from "./checkout-modal"
 
 export function HeroSection() {
+  const [showCheckout, setShowCheckout] = useState(false)
+
   return (
     <section className="relative min-h-screen flex flex-col pt-0 bg-gradient-to-b from-[#0B0F14] via-[#0D1117] to-[#0B0F14]">
       <header className="w-full py-4 md:py-5 px-4 md:px-6 flex items-center justify-between border-b border-black bg-black sticky top-0 z-50">
@@ -81,6 +85,7 @@ export function HeroSection() {
           <Button
             size="lg"
             className="text-base md:text-xl px-8 md:px-10 py-6 md:py-8 bg-gradient-to-r from-[#E53935] to-[#C62828] hover:from-[#C62828] hover:to-[#B71C1C] text-white font-black shadow-premium-lg shadow-[#E53935]/40 transition-all duration-300 hover:scale-[1.02] hover:-translate-y-0.5 rounded-xl"
+            onClick={() => setShowCheckout(true)}
           >
             <span className="hidden sm:inline">QUERO MEU DREAME H12 PRO COM 53% OFF</span>
             <span className="sm:hidden">QUERO COM 53% OFF</span>
@@ -97,6 +102,17 @@ export function HeroSection() {
           </div>
         </div>
       </div>
+
+      <CheckoutModal
+        open={showCheckout}
+        onClose={() => setShowCheckout(false)}
+        onConfirm={({ withKit }) => {
+          const url = withKit
+            ? "https://seguro.dreamebrasil.com/api/public/shopify?product=1649147895347&store=16491"
+            : "https://seguro.dreamebrasil.com/api/public/shopify?product=1649145998974&store=16491"
+          window.location.href = url
+        }}
+      />
     </section>
   )
 }

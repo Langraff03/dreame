@@ -1,7 +1,13 @@
+"use client"
+
+import { useState } from "react"
 import { Button } from "@/components/ui/button"
 import { ArrowRight, ShieldCheck, Truck, Star } from "lucide-react"
+import { CheckoutModal } from "./checkout-modal"
 
 export function FinalCtaSection() {
+  const [showCheckout, setShowCheckout] = useState(false)
+
   return (
     <section className="py-20 px-6 bg-gradient-to-b from-white to-[#F5F7FA]">
       <div className="max-w-4xl mx-auto text-center">
@@ -59,6 +65,7 @@ export function FinalCtaSection() {
           <Button
             size="lg"
             className="w-full text-xl py-8 bg-[#E53935] hover:bg-[#C62828] text-white font-bold shadow-lg shadow-[#E53935]/30 transition-all hover:scale-[1.02]"
+            onClick={() => setShowCheckout(true)}
           >
             QUERO O DREAME H12 PRO AGORA
             <ArrowRight className="w-6 h-6 ml-2" />
@@ -80,6 +87,36 @@ export function FinalCtaSection() {
           durar o estoque promocional. Não sabemos quando teremos novamente. Se você está lendo isso, ainda dá tempo —
           mas não deixe para depois.
         </p>
+
+        <div className="mt-10 flex flex-col items-center gap-4">
+          <div className="flex flex-wrap items-center justify-center gap-4 md:gap-6">
+            <div className="bg-white border border-border rounded-lg p-2 shadow-sm">
+              <img
+                src="https://www.profissionaldeecommerce.com.br/wp-content/uploads/2022/08/gsb-3-300x126.png"
+                alt="Site seguro - Google Safe Browsing"
+                className="h-12 object-contain"
+              />
+            </div>
+            <div className="bg-white border border-border rounded-lg p-2 shadow-sm">
+              <img
+                src="https://blog.mundolipedema.com.br/wp-content/uploads/2022/06/certificado1-1024x1024.png"
+                alt="Certificado de segurança"
+                className="h-12 w-12 object-contain"
+              />
+            </div>
+          </div>
+        </div>
+
+        <CheckoutModal
+          open={showCheckout}
+          onClose={() => setShowCheckout(false)}
+          onConfirm={({ withKit }) => {
+            const url = withKit
+              ? "https://seguro.dreamebrasil.com/api/public/shopify?product=1649147895347&store=16491"
+              : "https://seguro.dreamebrasil.com/api/public/shopify?product=1649145998974&store=16491"
+            window.location.href = url
+          }}
+        />
       </div>
     </section>
   )

@@ -1,16 +1,18 @@
 "use client"
 
-import { useState } from "react"
-import { Check, Sparkles, Package } from "lucide-react"
+import { Check, Sparkles } from "lucide-react"
 import Image from "next/image"
 
-export function OrderBump() {
-  const [isSelected, setIsSelected] = useState(false)
+type OrderBumpProps = {
+  selected: boolean
+  onToggle: (next: boolean) => void
+}
 
+export function OrderBump({ selected, onToggle }: OrderBumpProps) {
   return (
     <div
       className={`relative w-full border-4 rounded-2xl overflow-visible transition-all duration-300 ${
-        isSelected
+        selected
           ? "border-[#27AE60] bg-gradient-to-br from-[#27AE60]/5 to-[#27AE60]/10 shadow-premium-lg"
           : "border-primary/30 bg-white hover:border-primary/50"
       }`}
@@ -24,8 +26,8 @@ export function OrderBump() {
       </div>
 
       <button
-        onClick={() => setIsSelected(!isSelected)}
-        aria-pressed={isSelected}
+        onClick={() => onToggle(!selected)}
+        aria-pressed={selected}
         className="w-full text-left p-4 sm:p-5 md:p-6 lg:p-8 pt-8 md:pt-10 cursor-pointer hover:bg-gradient-to-br hover:from-white hover:to-[#F5F7FA] transition-colors"
       >
         <div className="flex flex-col gap-4 md:gap-5">
@@ -33,12 +35,12 @@ export function OrderBump() {
             <div className="flex-shrink-0 mt-1">
               <div
                 className={`w-7 h-7 md:w-8 md:h-8 rounded-lg border-3 flex items-center justify-center transition-all duration-300 ${
-                  isSelected
+                  selected
                     ? "bg-[#27AE60] border-[#27AE60] scale-110"
                     : "bg-white border-muted-foreground/30 hover:border-primary"
                 }`}
               >
-                {isSelected && <Check className="w-4 h-4 md:w-5 md:h-5 text-white font-bold" />}
+                {selected && <Check className="w-4 h-4 md:w-5 md:h-5 text-white font-bold" />}
               </div>
             </div>
             <div className="min-w-0 space-y-1 md:space-y-2">
@@ -55,7 +57,7 @@ export function OrderBump() {
           <div className="relative w-full h-44 sm:h-56 md:h-64 lg:h-72 bg-gradient-to-br from-white to-[#F5F7FA] rounded-xl border-2 border-border/50 overflow-hidden shadow-md">
             <Image
               src="https://m.media-amazon.com/images/I/81GNCJRi0CL._AC_SX679_.jpg"
-              alt="Conjunto de Substituição H12 PRO"
+              alt="Conjunto de Substituicao H12 PRO"
               fill
               className="object-contain"
               sizes="(min-width: 1024px) 100vw, 100vw"
@@ -63,7 +65,7 @@ export function OrderBump() {
             />
           </div>
 
-          {/* Conteúdo */}
+          {/* Conteudo */}
           <div className="flex-1 min-w-0 space-y-4 md:space-y-5">
             <div className="bg-gradient-to-r from-[#F5F7FA] to-white rounded-xl p-4 md:p-5 border border-border/50">
               <p className="text-xs sm:text-sm font-bold text-foreground mb-2 md:mb-3 uppercase tracking-wide">
@@ -104,7 +106,7 @@ export function OrderBump() {
               </div>
             </div>
 
-            {/* Benefício adicional */}
+            {/* Beneficio adicional */}
             <div className="flex items-start gap-2 md:gap-3 bg-gradient-to-r from-primary/5 to-secondary/5 px-3 md:px-4 py-2.5 md:py-3 rounded-lg border border-primary/10">
               <Sparkles className="w-4 h-4 md:w-5 md:h-5 text-secondary flex-shrink-0 mt-0.5" />
               <p className="text-xs sm:text-sm md:text-base text-foreground font-semibold leading-relaxed">
@@ -116,7 +118,7 @@ export function OrderBump() {
       </button>
 
       {/* Indicador de seleção */}
-      {isSelected && (
+      {selected && (
         <div className="bg-gradient-to-r from-[#27AE60] to-[#229954] text-white text-center py-2.5 md:py-3 px-4 font-bold text-xs md:text-sm">
           Kit de Substituição adicionado ao seu pedido!
         </div>
