@@ -1,4 +1,4 @@
-"use client"
+﻿"use client"
 
 import { Button } from "@/components/ui/button"
 import { Truck, ShieldCheck, Clock, Flame, CreditCard, Sparkles } from "lucide-react"
@@ -160,14 +160,7 @@ export function OfferSection() {
                 onClick={() => setShowCheckout(true)}
               >
                 <Sparkles className="hidden sm:block w-5 h-5 md:w-6 md:h-6" />
-                <span className="hidden sm:block flex-1 text-center">
-                  {orderBumpSelected
-                    ? "QUERO O ASPIRADOR + KIT DE SUBSTITUI????O"
-                    : "SIM! QUERO MEU DREAME H12 PRO COM 64% OFF"}
-                </span>
-                <span className="sm:hidden flex-1 text-center">
-                  {orderBumpSelected ? "ASPIRADOR + KIT" : "QUERO COM 64% OFF"}
-                </span>
+                <span className="flex-1 text-center">QUERO MEU DREAME H12 PRO COM 64% OFF</span>
                 <span className="hidden sm:block w-5 md:w-6" aria-hidden />
               </Button>
 
@@ -261,3 +254,4 @@ export function OfferSection() {
     </section>
   )
 }
+

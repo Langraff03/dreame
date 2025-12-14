@@ -67,8 +67,7 @@ export function FinalCtaSection() {
             className="w-full text-sm sm:text-lg md:text-xl py-6 sm:py-7 md:py-8 px-5 sm:px-8 min-h-[64px] sm:min-h-[72px] bg-[#E53935] hover:bg-[#C62828] text-white font-black shadow-lg shadow-[#E53935]/30 transition-all duration-300 hover:scale-[1.02] text-center leading-tight whitespace-normal flex flex-col sm:flex-row items-center justify-center gap-1.5 sm:gap-3 rounded-xl"
             onClick={() => setShowCheckout(true)}
           >
-            <span className="block">QUERO O DREAME H12 PRO AGORA</span>
-            <span className="block sm:inline sm:ml-1">COM 64% OFF</span>
+            <span className="text-center">QUERO MEU DREAME H12 PRO COM 64% OFF</span>
             <ArrowRight className="w-6 h-6 sm:ml-1 flex-shrink-0" />
           </Button>
 
@@ -108,6 +107,21 @@ export function FinalCtaSection() {
               />
             </div>
           </div>
+
+          <a
+            href="https://www.instagram.com/dreamebrasil/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="mt-2 inline-flex items-center gap-2 text-sm text-muted-foreground hover:text-primary transition-colors"
+          >
+            <img
+              src="/images/instagram/instagram%20logo.png"
+              alt="Instagram Dreame Brasil"
+              className="w-8 h-8 object-contain"
+              loading="lazy"
+            />
+            <span>@dreamebrasil</span>
+          </a>
         </div>
 
         <CheckoutModal

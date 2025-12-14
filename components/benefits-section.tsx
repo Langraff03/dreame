@@ -94,9 +94,9 @@ export function BenefitsSection() {
           <Button
             size="lg"
             className="text-base md:text-lg px-6 md:px-8 py-6 md:py-7 bg-[#E53935] hover:bg-[#C62828] text-white font-bold shadow-lg shadow-[#E53935]/30 rounded-xl"
+            onClick={() => document.getElementById("oferta")?.scrollIntoView({ behavior: "smooth" })}
           >
-            <span className="hidden sm:inline">QUERO O DREAME H12 PRO AGORA COM 64% OFF</span>
-            <span className="sm:hidden">QUERO COM 64% OFF</span>
+            <span className="text-center">QUERO MEU DREAME H12 PRO COM 64% OFF</span>
             <ArrowRight className="w-4 h-4 md:w-5 md:h-5 ml-2" />
           </Button>
         </div>

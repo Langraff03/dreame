@@ -94,8 +94,7 @@ export function HeroSection() {
             className="text-base md:text-xl px-8 md:px-10 py-6 md:py-8 bg-gradient-to-r from-[#E53935] to-[#C62828] hover:from-[#C62828] hover:to-[#B71C1C] text-white font-black shadow-premium-lg shadow-[#E53935]/40 transition-all duration-300 hover:scale-[1.02] hover:-translate-y-0.5 rounded-xl"
             onClick={() => setShowCheckout(true)}
           >
-            <span className="hidden sm:inline">QUERO MEU DREAME H12 PRO COM 64% OFF</span>
-            <span className="sm:hidden">QUERO COM 64% OFF</span>
+            <span className="text-center">QUERO MEU DREAME H12 PRO COM 64% OFF</span>
           </Button>
           <div className="flex items-center justify-center gap-2 text-[#AAB4C3] text-xs md:text-sm bg-white/5 backdrop-blur-sm rounded-lg px-3 md:px-4 py-2.5 md:py-3 border border-white/10">
             <ShieldCheck className="w-4 h-4 md:w-5 md:h-5 text-[#27AE60] flex-shrink-0" />
@@ -123,3 +122,5 @@ export function HeroSection() {
     </section>
   )
 }
+
+

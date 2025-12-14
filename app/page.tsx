@@ -10,6 +10,7 @@ import { FaqSection } from "@/components/faq-section"
 import { FinalCtaSection } from "@/components/final-cta-section"
 import { StickyCtaBar } from "@/components/sticky-cta-bar"
 import { UrgencyTopBar } from "@/components/urgency-top-bar"
+import { BrandSection } from "@/components/brand-section"
 
 export default function Home() {
   return (
@@ -20,6 +21,7 @@ export default function Home() {
       <VideoProofSection />
       <ProductGallerySection />
       <ComparisonSection />
+      <BrandSection />
       <TestimonialsSection />
       <GuaranteeSection />
       <OfferSection />

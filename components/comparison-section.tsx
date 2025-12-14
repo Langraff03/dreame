@@ -24,29 +24,33 @@ export function ComparisonSection() {
           </h2>
         </div>
 
-        <div className="bg-background rounded-2xl md:rounded-3xl border border-border overflow-hidden shadow-premium">
+        <div className="bg-white rounded-2xl md:rounded-3xl border border-border/80 overflow-hidden shadow-premium">
           {/* Header */}
-          <div className="grid grid-cols-3 gap-2 md:gap-4 p-4 md:p-6 border-b border-border bg-card">
-            <div className="font-bold text-foreground text-xs md:text-base">Recurso</div>
-            <div className="font-bold text-primary text-center text-xs md:text-base">DREAME H12 PRO</div>
-            <div className="font-bold text-muted-foreground text-center text-xs md:text-base">Aspiradores Comuns</div>
+          <div className="grid grid-cols-3 gap-2 md:gap-4 p-4 md:p-6 border-b border-border/80 bg-gradient-to-r from-[#0B0F14] to-[#0D1117] text-white">
+            <div className="font-bold text-xs md:text-base text-left">Recurso</div>
+            <div className="font-bold text-center text-xs md:text-base bg-[#27AE60]/10 border border-[#27AE60]/30 rounded-lg py-2">
+              DREAME H12 PRO
+            </div>
+            <div className="font-bold text-center text-xs md:text-base bg-[#E53935]/10 border border-[#E53935]/30 rounded-lg py-2 text-white/80">
+              Aspiradores Comuns
+            </div>
           </div>
 
           {/* Rows */}
           {comparisons.map((item, index) => (
             <div
               key={index}
-              className="grid grid-cols-3 gap-2 md:gap-4 p-3 md:p-4 border-b border-border last:border-0 hover:bg-card/50 transition-colors"
+              className="grid grid-cols-3 gap-2 md:gap-4 p-3 md:p-4 border-b border-border/70 last:border-0 hover:bg-muted transition-colors"
             >
-              <div className="text-foreground text-xs md:text-base">{item.feature}</div>
+              <div className="text-foreground text-xs md:text-base font-semibold">{item.feature}</div>
               <div className="flex justify-center">
-                <div className="w-6 h-6 md:w-8 md:h-8 bg-green-500/20 rounded-full flex items-center justify-center">
-                  <Check className="w-3 h-3 md:w-5 md:h-5 text-green-500" />
+                <div className="w-7 h-7 md:w-9 md:h-9 bg-[#27AE60]/15 border border-[#27AE60]/30 rounded-full flex items-center justify-center">
+                  <Check className="w-3.5 h-3.5 md:w-5 md:h-5 text-[#27AE60]" />
                 </div>
               </div>
               <div className="flex justify-center">
-                <div className="w-6 h-6 md:w-8 md:h-8 bg-primary/20 rounded-full flex items-center justify-center">
-                  <X className="w-3 h-3 md:w-5 md:h-5 text-primary" />
+                <div className="w-7 h-7 md:w-9 md:h-9 bg-[#E53935]/15 border border-[#E53935]/30 rounded-full flex items-center justify-center">
+                  <X className="w-3.5 h-3.5 md:w-5 md:h-5 text-[#E53935]" />
                 </div>
               </div>
             </div>
