@@ -90,6 +90,7 @@ export function TestimonialsSection() {
                     alt={testimonials[currentIndex].name}
                     fill
                     className="object-cover"
+                    sizes="(min-width: 1024px) 160px, 120px"
                   />
                 </div>
               </div>

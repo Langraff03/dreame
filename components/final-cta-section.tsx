@@ -1,6 +1,7 @@
 "use client"
 
 import { useState } from "react"
+import Image from "next/image"
 import { Button } from "@/components/ui/button"
 import { ArrowRight, ShieldCheck, Truck, Star } from "lucide-react"
 import { CheckoutModal } from "./checkout-modal"
@@ -89,17 +90,21 @@ export function FinalCtaSection() {
         <div className="mt-10 flex flex-col items-center gap-4">
           <div className="flex flex-wrap items-center justify-center gap-4 md:gap-6">
             <div className="bg-white border border-border rounded-lg p-2 shadow-sm">
-              <img
+              <Image
                 src="https://www.profissionaldeecommerce.com.br/wp-content/uploads/2022/08/gsb-3-300x126.png"
                 alt="Site seguro - Google Safe Browsing"
+                width={160}
+                height={50}
                 loading="lazy"
-                className="h-12 object-contain"
+                className="h-12 w-auto object-contain"
               />
             </div>
             <div className="bg-white border border-border rounded-lg p-2 shadow-sm">
-              <img
+              <Image
                 src="https://blog.mundolipedema.com.br/wp-content/uploads/2022/06/certificado1-1024x1024.png"
                 alt="Certificado de segurança"
+                width={48}
+                height={48}
                 loading="lazy"
                 className="h-12 w-12 object-contain"
               />
@@ -112,9 +117,11 @@ export function FinalCtaSection() {
             rel="noopener noreferrer"
             className="mt-2 inline-flex items-center gap-2 text-sm text-muted-foreground hover:text-primary transition-colors"
           >
-            <img
+            <Image
               src="/images/instagram/instagram%20logo.png"
               alt="Instagram Dreame Brasil"
+              width={32}
+              height={32}
               className="w-8 h-8 object-contain"
               loading="lazy"
             />

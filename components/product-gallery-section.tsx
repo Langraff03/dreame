@@ -1,5 +1,6 @@
 "use client"
 
+import Image from "next/image"
 import { useState } from "react"
 
 const galleryItems = [
@@ -35,8 +36,15 @@ export function ProductGallerySection() {
                   idx === activeIndex ? "border-primary" : "border-border"
                 } overflow-hidden shadow-sm hover:shadow-md transition`}
               >
-                <div className="aspect-square bg-muted">
-                  <img src={item.src} alt="DREAME H12 PRO" className="w-full h-full object-cover" loading="lazy" />
+                <div className="aspect-square bg-muted relative">
+                  <Image
+                    src={item.src}
+                    alt="DREAME H12 PRO"
+                    fill
+                    className="object-cover"
+                    sizes="(min-width: 1024px) 200px, (min-width: 768px) 160px, 120px"
+                    loading="lazy"
+                  />
                 </div>
               </button>
             ))}
@@ -44,12 +52,16 @@ export function ProductGallerySection() {
 
           <div className="rounded-2xl border border-border overflow-hidden shadow-lg bg-gradient-to-br from-white to-muted/40">
             <div className="w-full h-[420px] md:h-[520px] bg-white flex items-center justify-center">
-              <img
-                src={galleryItems[activeIndex].src}
-                alt="DREAME H12 PRO"
-                className="w-full h-full object-contain"
-                loading="lazy"
-              />
+              <div className="relative w-full h-full">
+                <Image
+                  src={galleryItems[activeIndex].src}
+                  alt="DREAME H12 PRO"
+                  fill
+                  className="object-contain"
+                  sizes="(min-width: 1280px) 900px, (min-width: 1024px) 720px, (min-width: 768px) 640px, 100vw"
+                  priority={activeIndex === 0}
+                />
+              </div>
             </div>
           </div>
         </div>
