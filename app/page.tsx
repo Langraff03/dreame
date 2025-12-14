@@ -13,7 +13,7 @@ import { UrgencyTopBar } from "@/components/urgency-top-bar"
 
 export default function Home() {
   return (
-    <main className="min-h-screen bg-background pt-10 md:pt-12 pb-20 md:pb-28">
+    <main className="min-h-screen bg-background pb-20 md:pb-28">
       <UrgencyTopBar />
       <HeroSection />
       <SocialProofBar />

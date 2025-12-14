@@ -128,14 +128,8 @@ export function Protection() {
     window.addEventListener("beforeprint", beforePrint)
     window.addEventListener("afterprint", afterPrint)
 
-    const fallback = window.setTimeout(() => {
-      document.documentElement.style.visibility = "visible"
-    }, 4000)
-    document.documentElement.style.visibility = "hidden"
-
     return () => {
       window.clearInterval(interval)
-      window.clearTimeout(fallback)
       document.removeEventListener("keydown", onKey)
       ;["contextmenu", "copy", "cut", "paste", "dragstart"].forEach((ev) =>
         document.removeEventListener(ev, blockDefault),
