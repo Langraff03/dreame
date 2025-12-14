@@ -64,12 +64,12 @@ export function FinalCtaSection() {
         <div className="max-w-md mx-auto">
           <Button
             size="lg"
-            className="w-full text-sm sm:text-lg md:text-xl py-5 sm:py-6 md:py-7 px-4 sm:px-6 bg-[#E53935] hover:bg-[#C62828] text-white font-bold shadow-lg shadow-[#E53935]/30 transition-all hover:scale-[1.02] text-center leading-tight whitespace-normal flex flex-col sm:flex-row items-center justify-center gap-1 sm:gap-2 md:gap-3 rounded-xl"
+            className="w-full text-sm sm:text-lg md:text-xl py-6 sm:py-7 md:py-8 px-5 sm:px-8 min-h-[64px] sm:min-h-[72px] bg-[#E53935] hover:bg-[#C62828] text-white font-black shadow-lg shadow-[#E53935]/30 transition-all duration-300 hover:scale-[1.02] text-center leading-tight whitespace-normal flex flex-col sm:flex-row items-center justify-center gap-1.5 sm:gap-3 rounded-xl"
             onClick={() => setShowCheckout(true)}
           >
             <span className="block">QUERO O DREAME H12 PRO AGORA</span>
             <span className="block sm:inline sm:ml-1">COM 64% OFF</span>
-            <ArrowRight className="w-6 h-6 sm:ml-1" />
+            <ArrowRight className="w-6 h-6 sm:ml-1 flex-shrink-0" />
           </Button>
 
           <div className="flex flex-wrap items-center justify-center gap-3 sm:gap-6 mt-6 text-xs sm:text-sm text-muted-foreground text-center">
