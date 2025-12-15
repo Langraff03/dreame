@@ -14,14 +14,14 @@ type UrgencySnapshot = {
 type Listener = () => void
 
 // nova versão para resetar estado anterior e alinhar estoque/tempo
-const STORAGE_KEY = "dreame-urgency-state-v3"
+const STORAGE_KEY = "dreame-urgency-state-v4"
 
 const rand = (min: number, max: number) => Math.floor(Math.random() * (max - min + 1)) + min
 
 function createSnapshot(): UrgencySnapshot {
   const now = Date.now()
   const endsAt = now + rand(110, 170) * 60 * 1000 // janela maior para a oferta
-  const initialStock = 419
+  const initialStock = 140
   const stockCount = initialStock
   const minStock = 60
   const viewerCount = rand(118, 207)
@@ -66,7 +66,7 @@ const sharedState = {
           const stockCount =
             parsed.stockCount && parsed.stockCount > 0
               ? Math.max(minStock, Math.min(parsed.stockCount, initialStock))
-              : Math.max(minStock + 1, initialStock - rand(2, 8))
+              : Math.max(120, initialStock - rand(1, 5))
 
           this.state = {
             ...base,
@@ -130,7 +130,30 @@ const sharedState = {
     if (this.salesTimeoutId) return
 
     const scheduleSale = () => {
-      const delay = 40000
+      // Lógica progressiva de diminuição do estoque
+      const currentStock = this.state.stockCount
+      const initialStock = this.state.initialStock
+      const minStock = this.state.minStock
+      
+      // Calcula a porcentagem de estoque restante
+      const stockPercentage = ((currentStock - minStock) / (initialStock - minStock)) * 100
+      
+      let delay: number
+      
+      if (stockPercentage > 70) {
+        // Estoque alto (140-84): vende rápido (30-50s)
+        delay = 30000 + Math.random() * 20000
+      } else if (stockPercentage > 40) {
+        // Estoque médio (84-72): velocidade média (45-75s)
+        delay = 45000 + Math.random() * 30000
+      } else if (stockPercentage > 20) {
+        // Estoque baixo (72-66): mais lento (60-120s)
+        delay = 60000 + Math.random() * 60000
+      } else {
+        // Estoque crítico (66-60): muito lento (90-180s)
+        delay = 90000 + Math.random() * 90000
+      }
+      
       this.salesTimeoutId = window.setTimeout(() => {
         if (this.state.stockCount > this.state.minStock) {
           this.updateStock(this.state.stockCount - 1)
@@ -173,16 +196,20 @@ export function UrgencyTopBar() {
   }, [])
 
   useEffect(() => {
-    return sharedState.subscribe(() => {
+    const unsubscribe = sharedState.subscribe(() => {
       setViewerCount(sharedState.viewerCount)
       setStockCount(sharedState.stockCount)
     })
+    
+    return () => {
+      unsubscribe()
+    }
   }, [])
 
   if (!isMounted) return null
 
   return (
-    <div className="fixed top-0 left-0 right-0 bg-[#E53935] z-[100] py-2 md:py-2.5 px-3 md:px-4 shadow-lg">
+    <div className="fixed top-0 left-0 right-0 bg-gradient-to-r from-[#E53935] to-[#C62828] z-[100] py-2 md:py-2.5 px-3 md:px-4 shadow-xl border-b border-white/10">
       <div className="max-w-6xl mx-auto flex items-center justify-center gap-2 sm:gap-4 md:gap-8 flex-wrap text-white text-xs sm:text-sm">
         {/* Timer */}
         <div className="flex items-center gap-1.5 md:gap-2">

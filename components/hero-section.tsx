@@ -11,7 +11,7 @@ export function HeroSection() {
 
   return (
     <section className="relative min-h-screen flex flex-col bg-gradient-to-b from-[#0B0F14] via-[#0D1117] to-[#0B0F14] pt-10 md:pt-10">
-      <header className="w-full py-4 md:py-5 px-4 md:px-6 flex items-center justify-between border-b border-black bg-black sticky top-0 z-50">
+      <header className="w-full py-4 md:py-5 px-4 md:px-6 flex items-center justify-between border-b border-white/10 bg-black/80 backdrop-blur-sm">
         <div className="flex items-center gap-2 md:gap-3">
           <div className="relative w-16 h-16 md:w-20 md:h-20">
             <Image
@@ -91,10 +91,10 @@ export function HeroSection() {
         <div className="mt-8 md:mt-12 flex flex-col gap-4 md:gap-5 w-full max-w-lg px-4">
           <Button
             size="lg"
-            className="w-full text-sm sm:text-lg md:text-xl px-6 sm:px-8 md:px-10 py-5 sm:py-6 md:py-8 bg-gradient-to-r from-[#E53935] to-[#C62828] hover:from-[#C62828] hover:to-[#B71C1C] text-white font-black shadow-premium-lg shadow-[#E53935]/40 transition-all duration-300 hover:scale-[1.02] hover:-translate-y-0.5 rounded-xl whitespace-nowrap leading-tight inline-flex items-center justify-center gap-2"
+            className="w-full text-sm sm:text-lg md:text-xl px-6 sm:px-8 md:px-10 py-5 sm:py-6 md:py-8 bg-gradient-to-r from-[#E53935] to-[#C62828] hover:from-[#C62828] hover:to-[#B71C1C] text-white font-black shadow-premium-lg shadow-[#E53935]/40 transition-all duration-300 hover:scale-[1.02] hover:-translate-y-0.5 rounded-xl whitespace-nowrap leading-tight inline-flex items-center justify-center gap-2 animate-pulse hover:animate-none group"
             onClick={() => setShowCheckout(true)}
           >
-            <span className="text-center">QUERO MEU DREAME H12 PRO COM 64% OFF</span>
+            <span className="text-center group-hover:scale-105 transition-transform">QUERO MEU DREAME H12 PRO COM 64% OFF</span>
           </Button>
           <div className="flex items-center justify-center gap-2 text-[#AAB4C3] text-xs md:text-sm bg-white/5 backdrop-blur-sm rounded-lg px-3 md:px-4 py-2.5 md:py-3 border border-white/10">
             <ShieldCheck className="w-4 h-4 md:w-5 md:h-5 text-[#27AE60] flex-shrink-0" />

@@ -1,97 +1,91 @@
 "use client"
 
 import { useEffect, useState } from "react"
-import { CheckCircle, X, MapPin } from "lucide-react"
-import Image from "next/image"
+import { ShoppingCart, MapPin, Clock } from "lucide-react"
+import { createPortal } from "react-dom"
 
-const recentPurchases = [
-  { name: "Maria S.", city: "São Paulo, SP", time: "agora mesmo", image: "/brazilian-woman-profile-photo.jpg" },
-  { name: "João P.", city: "Rio de Janeiro, RJ", time: "1 min atrás", image: "/brazilian-man-profile-photo.jpg" },
-  { name: "Ana L.", city: "Belo Horizonte, MG", time: "2 min atrás", image: "/brazilian-woman-smiling-profile.jpg" },
-  { name: "Carlos M.", city: "Curitiba, PR", time: "3 min atrás", image: "/brazilian-man-middle-aged-profile.jpg" },
-  { name: "Fernanda R.", city: "Salvador, BA", time: "5 min atrás", image: "/brazilian-young-woman-profile.jpg" },
-  { name: "Pedro H.", city: "Brasília, DF", time: "6 min atrás", image: "/brazilian-man-professional-profile.jpg" },
-  {
-    name: "Juliana O.",
-    city: "Porto Alegre, RS",
-    time: "8 min atrás",
-    image: "/brazilian-woman-professional-profile.jpg",
-  },
-  { name: "Ricardo S.", city: "Fortaleza, CE", time: "10 min atrás", image: "/brazilian-man-casual-profile.jpg" },
+const mockPurchases = [
+  { name: "Carlos R.", city: "São Paulo, SP", timeAgo: "3 min" },
+  { name: "Maria L.", city: "Rio de Janeiro, RJ", timeAgo: "5 min" },
+  { name: "João S.", city: "Belo Horizonte, MG", timeAgo: "7 min" },
+  { name: "Ana P.", city: "Porto Alegre, RS", timeAgo: "8 min" },
+  { name: "Pedro M.", city: "Brasília, DF", timeAgo: "2 min" },
+  { name: "Lucia F.", city: "Salvador, BA", timeAgo: "4 min" },
+  { name: "Roberto K.", city: "Curitiba, PR", timeAgo: "6 min" },
+  { name: "Fernanda T.", city: "Fortaleza, CE", timeAgo: "9 min" },
 ]
 
 export function LivePurchasePopup() {
-  const [currentPurchase, setCurrentPurchase] = useState<(typeof recentPurchases)[0] | null>(null)
+  const [currentPurchase, setCurrentPurchase] = useState<typeof mockPurchases[0] | null>(null)
   const [isVisible, setIsVisible] = useState(false)
+  const [mounted, setMounted] = useState(false)
 
   useEffect(() => {
-    const showPopup = () => {
-      const randomIndex = Math.floor(Math.random() * recentPurchases.length)
-      setCurrentPurchase(recentPurchases[randomIndex])
-      setIsVisible(true)
-
-      setTimeout(() => {
-        setIsVisible(false)
-      }, 5000)
-    }
-
-    const initialTimeout = setTimeout(showPopup, 8000)
-
-    const interval = setInterval(
-      () => {
-        showPopup()
-      },
-      Math.random() * 10000 + 15000,
-    )
-
-    return () => {
-      clearTimeout(initialTimeout)
-      clearInterval(interval)
-    }
+    setMounted(true)
   }, [])
 
-  if (!isVisible || !currentPurchase) return null
+  useEffect(() => {
+    if (!mounted) return
 
-  return (
-    <div className="fixed bottom-24 left-4 md:left-6 z-[90] animate-slide-in">
-      <div className="bg-white border border-[#27AE60]/30 rounded-xl p-4 shadow-2xl max-w-xs">
-        <button
-          onClick={() => setIsVisible(false)}
-          className="absolute top-2 right-2 text-muted-foreground hover:text-foreground"
-        >
-          <X className="w-4 h-4" />
-        </button>
+    // Show first notification after 10 seconds
+    const initialDelay = setTimeout(() => {
+      showRandomPurchase()
+    }, 10000)
 
-        <div className="flex items-start gap-3">
-          <div className="relative w-12 h-12 rounded-full overflow-hidden border-2 border-primary flex-shrink-0">
-            <Image
-              src={currentPurchase.image || "/placeholder.svg"}
-              alt={currentPurchase.name}
-              fill
-              className="object-cover"
-            />
-          </div>
+    // Then show every 25-45 seconds
+    const interval = setInterval(() => {
+      if (Math.random() > 0.3) { // 70% chance to show
+        showRandomPurchase()
+      }
+    }, 25000 + Math.random() * 20000)
 
-          <div className="flex-1 min-w-0">
-            <div className="flex items-center gap-2 mb-1">
-              <CheckCircle className="w-4 h-4 text-[#27AE60] flex-shrink-0" />
-              <span className="text-[#27AE60] text-xs font-bold uppercase">Compra Verificada</span>
-            </div>
-            <p className="text-foreground font-semibold truncate">{currentPurchase.name}</p>
-            <p className="text-muted-foreground text-sm flex items-center gap-1">
-              <MapPin className="w-3 h-3" />
-              {currentPurchase.city}
-            </p>
-            <p className="text-primary text-xs mt-1">Comprou {currentPurchase.time}</p>
-          </div>
+    return () => {
+      clearTimeout(initialDelay)
+      clearInterval(interval)
+    }
+  }, [mounted])
+
+  const showRandomPurchase = () => {
+    const randomPurchase = mockPurchases[Math.floor(Math.random() * mockPurchases.length)]
+    setCurrentPurchase(randomPurchase)
+    setIsVisible(true)
+
+    // Hide after 6 seconds
+    setTimeout(() => {
+      setIsVisible(false)
+      setTimeout(() => setCurrentPurchase(null), 300) // Wait for animation
+    }, 6000)
+  }
+
+  if (!mounted || !currentPurchase) return null
+
+  return createPortal(
+    <div
+      className={`fixed bottom-24 md:bottom-6 left-3 md:left-6 z-[9999] max-w-[280px] md:max-w-sm transition-all duration-300 ${
+        isVisible ? "translate-x-0 opacity-100" : "-translate-x-full opacity-0"
+      }`}
+    >
+      <div className="bg-white border-2 border-[#27AE60]/30 rounded-xl shadow-xl p-4 flex items-center gap-3 hover:shadow-2xl transition-shadow">
+        <div className="w-10 h-10 bg-[#27AE60]/10 rounded-full flex items-center justify-center flex-shrink-0">
+          <ShoppingCart className="w-5 h-5 text-[#27AE60]" />
         </div>
-
-        <div className="mt-3 pt-3 border-t border-border">
-          <p className="text-xs text-muted-foreground">
-            Acabou de garantir o <strong className="text-foreground">DREAME H12 PRO</strong> com 64% OFF
+        
+        <div className="flex-1 min-w-0">
+          <p className="text-sm font-bold text-foreground">
+            <span className="text-[#27AE60]">{currentPurchase.name}</span> acabou de comprar
           </p>
+          <div className="flex items-center gap-2 text-xs text-muted-foreground">
+            <MapPin className="w-3 h-3" />
+            <span>{currentPurchase.city}</span>
+            <span>•</span>
+            <Clock className="w-3 h-3" />
+            <span>há {currentPurchase.timeAgo}</span>
+          </div>
         </div>
+
+        <div className="w-2 h-2 bg-[#27AE60] rounded-full animate-pulse flex-shrink-0" />
       </div>
-    </div>
+    </div>,
+    document.body
   )
 }

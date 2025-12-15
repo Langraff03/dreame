@@ -119,7 +119,10 @@ export function TestimonialsSection() {
                         {testimonials[currentIndex].name}
                       </p>
                       {testimonials[currentIndex].verified && (
-                        <CheckCircle className="w-4 h-4 md:w-5 md:h-5 text-[#27AE60]" />
+                        <div className="flex items-center gap-1 bg-[#27AE60]/10 px-2 py-1 rounded-full">
+                          <CheckCircle className="w-4 h-4 md:w-5 md:h-5 text-[#27AE60]" />
+                          <span className="text-[10px] md:text-xs font-bold text-[#27AE60]">VERIFICADO</span>
+                        </div>
                       )}
                     </div>
                     <p className="text-muted-foreground text-sm md:text-base">{testimonials[currentIndex].location}</p>

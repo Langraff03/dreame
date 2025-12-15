@@ -5,6 +5,7 @@ import { Truck, ShieldCheck, Clock, Flame, CreditCard, Sparkles } from "lucide-r
 import { useEffect, useState } from "react"
 import { OrderBump } from "./order-bump"
 import { CheckoutModal } from "./checkout-modal"
+import { SavingsCalculator } from "./savings-calculator"
 import { sharedState } from "./urgency-top-bar"
 
 const included = [
@@ -49,7 +50,9 @@ export function OfferSection() {
     const unsubscribe = sharedState.subscribe(() => {
       setStockCount(sharedState.stockCount)
     })
-    return unsubscribe
+    return () => {
+      unsubscribe()
+    }
   }, [])
 
   return (
@@ -146,6 +149,16 @@ export function OfferSection() {
                   ou <strong className="text-foreground font-bold">12x de R$ 20,82</strong> sem juros
                 </span>
               </div>
+            </div>
+
+            {/* Savings Calculator */}
+            <div className="mb-8 md:mb-10">
+              <SavingsCalculator
+                originalPrice={699}
+                currentPrice={249.9}
+                pixDiscount={5}
+                showAnimation={true}
+              />
             </div>
 
             <div className="mb-8 md:mb-10">
