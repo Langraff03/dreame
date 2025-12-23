@@ -23,7 +23,7 @@ export function FinalCtaSection() {
             <ul className="space-y-3 text-sm sm:text-base text-muted-foreground">
               <li>Continuar com dor nas costas</li>
               <li>Continuar gastando com aspiradores ruins</li>
-              <li>Perder esta oferta de 64% OFF</li>
+              <li>Perder esta oferta de 79% OFF</li>
             </ul>
           </div>
 
@@ -54,7 +54,7 @@ export function FinalCtaSection() {
               </li>
               <li className="flex items-center gap-2">
                 <Star className="w-4 h-4 text-[#00BFA6]" />
-                64% OFF + Frete Grátis + Brindes
+                79% OFF + Frete Grátis + Brindes
               </li>
             </ul>
           </div>
@@ -66,7 +66,7 @@ export function FinalCtaSection() {
             className="w-full text-sm sm:text-lg md:text-xl py-6 sm:py-7 md:py-8 px-5 sm:px-8 min-h-[64px] sm:min-h-[72px] bg-[#E53935] hover:bg-[#C62828] text-white font-black shadow-lg shadow-[#E53935]/30 transition-all duration-300 hover:scale-[1.02] text-center leading-tight whitespace-normal flex flex-col sm:flex-row items-center justify-center gap-1.5 sm:gap-3 rounded-xl"
             onClick={() => setShowCheckout(true)}
           >
-            <span className="text-center">QUERO MEU DREAME H12 PRO COM 64% OFF</span>
+            <span className="text-center">QUERO MEU DREAME H12 PRO COM 79% OFF</span>
             <ArrowRight className="w-6 h-6 sm:ml-1 flex-shrink-0" />
           </Button>
 

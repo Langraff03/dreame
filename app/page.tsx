@@ -37,8 +37,8 @@ export default function Home() {
       const elapsed = Math.floor((Date.now() - startTime) / 1000)
       setTimeOnSite(elapsed)
       
-      // Show popup after 40 seconds, only once
-      if (elapsed >= 40 && !exitIntentShown) {
+      // Show popup after 120 seconds, only once
+      if (elapsed >= 120 && !exitIntentShown) {
         setShowExitIntent(true)
         setExitIntentShown(true)
         localStorage.setItem('dreame-exit-popup-shown', 'true')

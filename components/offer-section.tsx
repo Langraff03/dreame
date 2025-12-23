@@ -121,7 +121,7 @@ export function OfferSection() {
               }}
             />
             <p className="text-white font-black text-xl tracking-wide relative z-10">
-              64% DE DESCONTO + FRETE GRÁTIS + BRINDES EXCLUSIVOS
+              79% DE DESCONTO + FRETE GRÁTIS + BRINDES EXCLUSIVOS
             </p>
           </div>
 
@@ -130,7 +130,7 @@ export function OfferSection() {
               <div className="inline-flex items-center gap-2 md:gap-3 mb-3 flex-wrap justify-center">
                 <p className="text-muted-foreground line-through text-lg md:text-2xl">De R$ 699,00</p>
                 <span className="bg-[#E53935] text-white px-3 md:px-4 py-1.5 md:py-2 rounded-full text-base md:text-lg font-black shadow-lg">
-                  -64%
+                  -79%
                 </span>
               </div>
 
@@ -138,7 +138,7 @@ export function OfferSection() {
                 <div className="flex items-baseline justify-center gap-1 md:gap-2">
                   <span className="text-2xl md:text-4xl font-bold text-muted-foreground">R$</span>
                   <span className="text-6xl sm:text-7xl md:text-9xl font-black text-gradient tracking-tighter">
-                    249,90
+                    147,00
                   </span>
                 </div>
               </div>
@@ -146,7 +146,7 @@ export function OfferSection() {
               <div className="flex items-center justify-center gap-2 md:gap-2.5 text-sm md:text-lg bg-gradient-to-r from-primary/5 to-secondary/5 rounded-xl px-4 md:px-6 py-3 md:py-4 border border-primary/10">
                 <CreditCard className="w-5 h-5 md:w-6 md:h-6 text-primary flex-shrink-0" />
                 <span className="text-muted-foreground text-center">
-                  ou <strong className="text-foreground font-bold">12x de R$ 20,82</strong> sem juros
+                  ou <strong className="text-foreground font-bold">12x de R$ 12,25</strong> sem juros
                 </span>
               </div>
             </div>
@@ -155,7 +155,7 @@ export function OfferSection() {
             <div className="mb-8 md:mb-10">
               <SavingsCalculator
                 originalPrice={699}
-                currentPrice={249.9}
+                currentPrice={147}
                 pixDiscount={5}
                 showAnimation={true}
               />
@@ -173,14 +173,14 @@ export function OfferSection() {
                 onClick={() => setShowCheckout(true)}
               >
                 <Sparkles className="hidden sm:block w-5 h-5 md:w-6 md:h-6" />
-                <span className="flex-1 text-center">QUERO MEU DREAME H12 PRO COM 64% OFF</span>
+                <span className="flex-1 text-center">QUERO MEU DREAME H12 PRO COM 79% OFF</span>
                 <span className="hidden sm:block w-5 md:w-6" aria-hidden />
               </Button>
 
               <div className="w-full text-xs md:text-sm text-foreground text-center bg-white border border-border rounded-lg py-3 px-4">
                 {orderBumpSelected
-                  ? "Você selecionou o kit de substituição por R$ 97. O checkout incluirá aspirador + kit."
-                  : "Kit de substituição opcional por R$ 97. Ative acima se quiser levar junto."}
+                  ? "Você selecionou o kit de substituição por R$ 47. O checkout incluirá aspirador + kit."
+                  : "Kit de substituição opcional por R$ 47. Ative acima se quiser levar junto."}
               </div>
 
               <div className="w-full text-sm sm:text-base md:text-lg py-4 sm:py-5 bg-gradient-to-r from-[#00BFA6] to-[#00A57A] text-white font-bold border border-[#00A57A]/30 shadow-md shadow-[#00BFA6]/30 rounded-xl md:rounded-2xl text-center leading-tight">

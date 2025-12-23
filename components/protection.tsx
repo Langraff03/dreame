@@ -71,36 +71,6 @@ export function Protection() {
       return
     }
 
-    const bait = new Image()
-    let locked = false
-    Object.defineProperty(bait, "id", {
-      get() {
-        locked = true
-        blockPage("<h1>Acesso Negado</h1><p>DevTools bloqueado.</p>")
-        return ""
-      },
-    })
-    console.log(bait)
-
-    const checkSize = () => {
-      if (isMobile) return
-      if (window.outerWidth - window.innerWidth > 220 || window.outerHeight - window.innerHeight > 220) {
-        locked = true
-        blockPage("<h1>Acesso Negado</h1><p>DevTools bloqueado.</p>")
-      }
-    }
-
-    const interval = window.setInterval(() => {
-      if (!locked) checkSize()
-    }, 500)
-
-    const onKey = (e: KeyboardEvent) => {
-      if (e.key === "F12") e.preventDefault()
-      if (e.ctrlKey && e.shiftKey && (e.key === "I" || e.key === "J" || e.key === "C")) e.preventDefault()
-      if (e.ctrlKey && ["U", "S", "P", "C"].includes(e.key)) e.preventDefault()
-    }
-    document.addEventListener("keydown", onKey)
-
     const disableSelect = () => {
       const s = document.body.style
       s.userSelect = "none"
@@ -129,8 +99,6 @@ export function Protection() {
     window.addEventListener("afterprint", afterPrint)
 
     return () => {
-      window.clearInterval(interval)
-      document.removeEventListener("keydown", onKey)
       ;["contextmenu", "copy", "cut", "paste", "dragstart"].forEach((ev) =>
         document.removeEventListener(ev, blockDefault),
       )

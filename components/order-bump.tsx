@@ -142,23 +142,23 @@ export function OrderBump({ selected, onToggle }: OrderBumpProps) {
                 {/* Preços */}
                 <div className="flex-1">
                   <div className="flex items-center gap-3 mb-2">
-                    <p className="text-lg md:text-xl text-muted-foreground line-through">De R$ 181,00</p>
+                    <p className="text-lg md:text-xl text-muted-foreground line-through">De R$ 87,00</p>
                     <div className="bg-[#E53935] text-white px-3 py-1 rounded-full text-sm font-bold">
                       -46%
                     </div>
                   </div>
                   <div className="flex items-baseline gap-2">
                     <span className="text-base md:text-lg font-bold text-muted-foreground">Por apenas</span>
-                    <span className="text-4xl md:text-5xl font-black text-[#27AE60]">R$ 97</span>
+                    <span className="text-4xl md:text-5xl font-black text-[#27AE60]">R$ 47</span>
                   </div>
-                  <p className="text-sm text-muted-foreground mt-1">ou 6x de R$ 16,16 sem juros</p>
+                  <p className="text-sm text-muted-foreground mt-1">ou 6x de R$ 7,83 sem juros</p>
                 </div>
 
                 {/* Cards de economia */}
                 <div className="flex gap-3">
                   <div className="bg-gradient-to-br from-[#E53935]/10 to-[#C62828]/10 px-4 py-3 rounded-xl border-2 border-[#E53935]/20 text-center flex-1">
                     <p className="text-sm md:text-base font-black text-[#E53935]">ECONOMIA</p>
-                    <p className="text-lg md:text-xl font-black text-[#E53935]">R$ 84</p>
+                    <p className="text-lg md:text-xl font-black text-[#E53935]">R$ 40</p>
                     <p className="text-xs text-muted-foreground">46% desconto</p>
                   </div>
                   <div className="bg-gradient-to-br from-[#27AE60]/10 to-[#229954]/10 px-4 py-3 rounded-xl border-2 border-[#27AE60]/20 text-center flex-1">

@@ -59,10 +59,10 @@ export function ExitIntentModal({ isOpen, onClose, onAccept }: ExitIntentModalPr
           <div className="relative z-10">
             <div className="flex items-center gap-2 mb-2">
               <Zap className="w-6 h-6 text-yellow-300" />
-              <span className="font-black text-lg">ESPERE!</span>
+              <span className="font-black text-lg">OFERTA IMPERDÍVEL!</span>
             </div>
-            <h3 className="text-2xl font-black mb-1">Não Perca Essa Oportunidade!</h3>
-            <p className="text-white/90 text-sm">Você estava quase garantindo seu DREAME H12 PRO</p>
+            <h3 className="text-2xl font-black mb-1">Desconto Extra Exclusivo!</h3>
+            <p className="text-white/90 text-sm">Aproveite esta oportunidade única para economizar ainda mais</p>
           </div>
         </div>
 
@@ -83,10 +83,10 @@ export function ExitIntentModal({ isOpen, onClose, onAccept }: ExitIntentModalPr
             
             <div className="my-4">
               <div className="flex items-baseline justify-center gap-2">
-                <span className="text-muted-foreground line-through text-lg">R$ 249,90</span>
-                <span className="text-3xl font-black text-[#27AE60]">R$ 232,41</span>
+                <span className="text-muted-foreground line-through text-lg">R$ 147,00</span>
+                <span className="text-3xl font-black text-[#27AE60]">R$ 136,71</span>
               </div>
-              <p className="text-xs text-muted-foreground mt-1">ou 12x de R$ 19,37 sem juros</p>
+              <p className="text-xs text-muted-foreground mt-1">ou 12x de R$ 11,39 sem juros</p>
             </div>
           </div>
 

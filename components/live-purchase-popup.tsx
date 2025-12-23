@@ -32,12 +32,12 @@ export function LivePurchasePopup() {
       showRandomPurchase()
     }, 10000)
 
-    // Then show every 25-45 seconds
+    // Then show every 60-90 seconds (reduced frequency)
     const interval = setInterval(() => {
-      if (Math.random() > 0.3) { // 70% chance to show
+      if (Math.random() > 0.5) { // 50% chance to show
         showRandomPurchase()
       }
-    }, 25000 + Math.random() * 20000)
+    }, 60000 + Math.random() * 30000)
 
     return () => {
       clearTimeout(initialDelay)
@@ -61,29 +61,23 @@ export function LivePurchasePopup() {
 
   return createPortal(
     <div
-      className={`fixed bottom-24 md:bottom-6 left-3 md:left-6 z-[9999] max-w-[280px] md:max-w-sm transition-all duration-300 ${
+      className={`fixed bottom-20 md:bottom-4 left-2 md:left-4 z-[50] max-w-[200px] md:max-w-[240px] transition-all duration-300 ${
         isVisible ? "translate-x-0 opacity-100" : "-translate-x-full opacity-0"
       }`}
     >
-      <div className="bg-white border-2 border-[#27AE60]/30 rounded-xl shadow-xl p-4 flex items-center gap-3 hover:shadow-2xl transition-shadow">
-        <div className="w-10 h-10 bg-[#27AE60]/10 rounded-full flex items-center justify-center flex-shrink-0">
-          <ShoppingCart className="w-5 h-5 text-[#27AE60]" />
+      <div className="bg-white border border-[#27AE60]/30 rounded-lg shadow-md p-2.5 flex items-center gap-2 hover:shadow-lg transition-shadow">
+        <div className="w-6 h-6 bg-[#27AE60]/10 rounded-full flex items-center justify-center flex-shrink-0">
+          <ShoppingCart className="w-3 h-3 text-[#27AE60]" />
         </div>
         
         <div className="flex-1 min-w-0">
-          <p className="text-sm font-bold text-foreground">
-            <span className="text-[#27AE60]">{currentPurchase.name}</span> acabou de comprar
+          <p className="text-xs font-bold text-foreground leading-tight">
+            <span className="text-[#27AE60]">{currentPurchase.name}</span> comprou
           </p>
-          <div className="flex items-center gap-2 text-xs text-muted-foreground">
-            <MapPin className="w-3 h-3" />
-            <span>{currentPurchase.city}</span>
-            <span>•</span>
-            <Clock className="w-3 h-3" />
-            <span>há {currentPurchase.timeAgo}</span>
-          </div>
+          <p className="text-[10px] text-muted-foreground">há {currentPurchase.timeAgo}</p>
         </div>
 
-        <div className="w-2 h-2 bg-[#27AE60] rounded-full animate-pulse flex-shrink-0" />
+        <div className="w-1.5 h-1.5 bg-[#27AE60] rounded-full animate-pulse flex-shrink-0" />
       </div>
     </div>,
     document.body

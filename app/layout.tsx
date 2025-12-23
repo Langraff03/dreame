@@ -20,7 +20,7 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   title: "DREAME H12 PRO - Aspirador Vertical Potente | Limpeza Profissional",
   description:
-    "O aspirador vertical mais potente do mercado. Limpeza profunda em segundos. Mais de 50.000 familias satisfeitas. Por apenas R$249,90 com desconto especial.",
+    "O aspirador vertical mais potente do mercado. Limpeza profunda em segundos. Mais de 50.000 familias satisfeitas. Por apenas R$147,00 com desconto especial.",
   generator: "v0.app",
   keywords: ["aspirador vertical", "dreame h12 pro", "limpeza profissional", "aspirador potente"],
   icons: {
@@ -53,5 +53,4 @@ export default function RootLayout({
     </html>
   )
 }
-
 

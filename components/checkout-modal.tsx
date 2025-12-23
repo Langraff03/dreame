@@ -182,7 +182,7 @@ export function CheckoutModal({ open, initialKitSelected = false, onClose, onCon
               </div>
               
               <p className="text-sm text-muted-foreground mb-4">
-                Filtros, escovas e limpeza extra para 1 ano de uso sem preocupação. Valor adicional: <strong>R$ 97</strong>.
+                Filtros, escovas e limpeza extra para 1 ano de uso sem preocupação. Valor adicional: <strong>R$ 47</strong>.
               </p>
 
               <div className="flex flex-col sm:flex-row gap-3">
@@ -194,7 +194,7 @@ export function CheckoutModal({ open, initialKitSelected = false, onClose, onCon
                       : "bg-white text-foreground border-border hover:border-[#27AE60]"
                   }`}
                 >
-                  Quero levar o kit (+R$ 97)
+                  Quero levar o kit (+R$ 47)
                 </button>
                 
                 <button
@@ -231,14 +231,14 @@ export function CheckoutModal({ open, initialKitSelected = false, onClose, onCon
               <div className="flex justify-between items-center">
                 <span>Kit de Substituição:</span>
                 <span className={`font-semibold ${withKit ? "text-[#27AE60]" : "text-muted-foreground"}`}>
-                  {withKit ? "✓ Incluído (+R$ 97)" : "Não incluído"}
+                  {withKit ? "✓ Incluído (+R$ 47)" : "Não incluído"}
                 </span>
               </div>
               <div className="border-t border-border pt-2 flex justify-between items-center">
                 <span className="font-bold text-base">Total Estimado:</span>
                 <div className="text-right">
                   <div className="text-xl font-black text-[#E53935]">
-                    R$ {withKit ? "346,90" : "249,90"}
+                    R$ {withKit ? "194,00" : "147,00"}
                   </div>
                   <div className="text-xs text-muted-foreground">ou 12x sem juros</div>
                 </div>
@@ -258,7 +258,7 @@ export function CheckoutModal({ open, initialKitSelected = false, onClose, onCon
               }`}
             >
               <Sparkles className="w-5 h-5" />
-              {selectedColor ? "FINALIZAR PEDIDO COM 64% OFF" : "ESCOLHA UMA COR PARA CONTINUAR"}
+              {selectedColor ? "FINALIZAR PEDIDO COM 79% OFF" : "ESCOLHA UMA COR PARA CONTINUAR"}
               {selectedColor && <TrendingUp className="w-5 h-5" />}
             </button>
             

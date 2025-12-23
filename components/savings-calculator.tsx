@@ -12,7 +12,7 @@ type SavingsCalculatorProps = {
 
 export function SavingsCalculator({
   originalPrice = 699,
-  currentPrice = 249.9,
+  currentPrice = 147,
   pixDiscount = 5,
   showAnimation = true,
 }: SavingsCalculatorProps) {

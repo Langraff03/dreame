@@ -34,7 +34,7 @@ const faqs = [
   {
     question: "Posso parcelar? Quais formas de pagamento?",
     answer:
-      "Sim! Aceitamos cartão de crédito em até 12x sem juros (R$20,82/mês), PIX com 5% de desconto adicional e cartão de débito. Checkout 100% seguro e criptografado.",
+      "Sim! Aceitamos cartão de crédito em até 12x sem juros (R$12,25/mês), PIX com 5% de desconto adicional e cartão de débito. Checkout 100% seguro e criptografado.",
   },
   {
     question: "Como funciona a garantia de 7 dias?",
