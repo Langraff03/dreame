@@ -44,7 +44,12 @@ export function ExitIntentModal({ isOpen, onClose, onAccept }: ExitIntentModalPr
   if (!mounted || !isOpen) return null
 
   return createPortal(
-    <div className="fixed inset-0 z-[9999] flex items-center justify-center bg-black/70 backdrop-blur-sm">
+    <div
+      className="fixed inset-0 z-[9999] flex items-center justify-center bg-black/70 backdrop-blur-sm"
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="exit-intent-title"
+    >
       <div className="bg-white rounded-2xl shadow-2xl max-w-lg w-full mx-4 relative overflow-hidden animate-in zoom-in-95 duration-300">
         {/* Header with animated background */}
         <div className="bg-gradient-to-r from-[#E53935] to-[#C62828] p-6 text-white relative overflow-hidden">
@@ -61,7 +66,7 @@ export function ExitIntentModal({ isOpen, onClose, onAccept }: ExitIntentModalPr
               <Zap className="w-6 h-6 text-yellow-300" />
               <span className="font-black text-lg">OFERTA IMPERDÍVEL!</span>
             </div>
-            <h3 className="text-2xl font-black mb-1">Desconto Extra Exclusivo!</h3>
+            <h3 id="exit-intent-title" className="text-2xl font-black mb-1">Desconto Extra Exclusivo!</h3>
             <p className="text-white/90 text-sm">Aproveite esta oportunidade única para economizar ainda mais</p>
           </div>
         </div>

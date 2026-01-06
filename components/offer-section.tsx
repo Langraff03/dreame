@@ -161,10 +161,6 @@ export function OfferSection() {
               />
             </div>
 
-            <div className="mb-8 md:mb-10">
-              <OrderBump selected={orderBumpSelected} onToggle={setOrderBumpSelected} />
-            </div>
-
             <div className="space-y-4 md:space-y-5">
               <div className="w-full text-sm sm:text-base md:text-lg py-4 sm:py-5 bg-primary/10 text-primary font-bold border border-primary/20 shadow-sm rounded-xl md:rounded-2xl text-center leading-tight">
                 Oferta válida somente para pagamento via PIX
@@ -184,7 +180,7 @@ export function OfferSection() {
               <div className="w-full text-xs md:text-sm text-foreground text-center bg-white border border-border rounded-lg py-3 px-4">
                 {orderBumpSelected
                   ? "Você selecionou o kit de substituição por R$ 19,90. O checkout incluirá aspirador + kit."
-                  : "Kit de substituição opcional por R$ 19,90. Ative acima se quiser levar junto."}
+                  : "Kit de substituição opcional por R$ 19,90. Escolha na seção abaixo se quiser levar junto."}
               </div>
 
               <p className="text-center text-xs md:text-sm text-muted-foreground bg-[#E53935]/5 py-2.5 md:py-3 px-3 md:px-4 rounded-xl border border-[#E53935]/10">
@@ -193,6 +189,11 @@ export function OfferSection() {
                 oferta
               </p>
 
+            </div>
+
+            <div className="mt-10 md:mt-12">
+              <p className="text-sm md:text-base font-black text-foreground mb-3">Kit de manutenção (opcional)</p>
+              <OrderBump selected={orderBumpSelected} onToggle={setOrderBumpSelected} />
             </div>
 
             <div className="mt-10 md:mt-12 grid grid-cols-1 sm:grid-cols-3 gap-4 md:gap-6">
@@ -219,21 +220,6 @@ export function OfferSection() {
               </div>
             </div>
 
-            <div className="mt-8 md:mt-10 pt-8 md:pt-10 border-t-2 border-border/50 text-center">
-              <p className="text-xs md:text-sm text-muted-foreground font-semibold mb-4 md:mb-5 uppercase tracking-wide">
-                Aceitamos todas as formas de pagamento:
-              </p>
-              <div className="flex items-center justify-center gap-2 md:gap-3 flex-wrap">
-                {["Visa", "Mastercard", "Elo", "PIX"].map((method) => (
-                  <span
-                    key={method}
-                    className="bg-gradient-to-br from-white to-[#F5F7FA] px-3 md:px-5 py-2 md:py-3 rounded-lg md:rounded-xl text-xs md:text-sm text-foreground font-bold border-2 border-border/50 hover:border-primary/30 transition-colors shadow-sm"
-                  >
-                    {method}
-                  </span>
-                ))}
-              </div>
-            </div>
           </div>
         </div>
       </div>

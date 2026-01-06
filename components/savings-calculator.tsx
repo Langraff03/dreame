@@ -21,7 +21,7 @@ export function SavingsCalculator({
 
   const baseSavings = originalPrice - currentPrice
   const pixSavingsAmount = (currentPrice * pixDiscount) / 100
-  const totalSavings = baseSavings + pixSavingsAmount
+  const totalSavings = baseSavings // removendo destaque de adicional PIX
   const discountPercentage = Math.round((baseSavings / originalPrice) * 100)
 
   useEffect(() => {
@@ -80,12 +80,6 @@ export function SavingsCalculator({
               <TrendingDown className="w-4 h-4 text-[#E53935]" />
               <span>Desconto de {discountPercentage}%: R$ {baseSavings.toFixed(2).replace(".", ",")}</span>
             </div>
-            {pixDiscount > 0 && (
-              <div className="flex items-center justify-center gap-2">
-                <div className="w-3 h-3 bg-[#00BFA6] rounded-full" />
-                <span>PIX adicional ({pixDiscount}%): R$ {pixSavingsAmount.toFixed(2).replace(".", ",")}</span>
-              </div>
-            )}
           </div>
 
           {/* Value proposition */}

@@ -20,24 +20,14 @@ export function OrderBump({ selected, onToggle }: OrderBumpProps) {
 
   return (
     <div className="relative w-full">
-
       <div
-        className={`relative w-full border-4 rounded-3xl overflow-visible transition-all duration-500 ${showAnimation ? 'animate-fade-in-up' : ''} ${
+        className={`relative w-full border-2 rounded-3xl overflow-hidden transition-all duration-300 ${
           selected
-            ? "border-[#27AE60] bg-gradient-to-br from-[#27AE60]/5 via-white to-[#27AE60]/10 shadow-premium-xl transform scale-[1.02]"
-            : "border-primary/30 bg-white hover:border-primary/60 hover:shadow-lg"
+            ? "border-[#27AE60]/60 bg-gradient-to-br from-[#27AE60]/5 via-white to-[#27AE60]/10 shadow-lg"
+            : "border-border bg-white hover:border-primary/40 hover:shadow-md"
         }`}
       >
         
-        {/* Badge destaque premium - ajustado para não sobrepor */}
-        <div className="absolute -top-5 left-1/2 -translate-x-1/2 z-20">
-          <div className="bg-gradient-to-r from-[#E53935] to-[#C62828] text-white px-4 md:px-6 py-2 md:py-2.5 rounded-full text-xs md:text-sm font-black shadow-premium-lg flex items-center gap-1.5 md:gap-2">
-            <Sparkles className="w-3 h-3 md:w-4 md:h-4" />
-            <span className="hidden sm:inline">OFERTA ESPECIAL • 46% OFF</span>
-            <span className="sm:hidden">46% OFF</span>
-          </div>
-        </div>
-
         <button
           onClick={() => onToggle(!selected)}
           aria-pressed={selected}
@@ -49,9 +39,9 @@ export function OrderBump({ selected, onToggle }: OrderBumpProps) {
             <div className="flex items-start gap-4 md:gap-5">
               <div className="flex-shrink-0 mt-1">
                 <div
-                  className={`w-8 h-8 md:w-10 md:h-10 rounded-xl border-3 flex items-center justify-center transition-all duration-300 ${
+                  className={`w-8 h-8 md:w-10 md:h-10 rounded-xl border-2 flex items-center justify-center transition-all duration-300 ${
                     selected
-                      ? "bg-[#27AE60] border-[#27AE60] scale-110 shadow-lg"
+                      ? "bg-[#27AE60] border-[#27AE60] shadow-md"
                       : "bg-white border-muted-foreground/30 hover:border-[#27AE60] group-hover:scale-105"
                   }`}
                 >
@@ -61,26 +51,22 @@ export function OrderBump({ selected, onToggle }: OrderBumpProps) {
               
               <div className="min-w-0 space-y-2 md:space-y-3 flex-1">
                 <div className="flex items-start justify-between gap-3">
-                  <h3 className="text-lg sm:text-xl md:text-2xl lg:text-3xl font-black text-foreground leading-tight">
-                    Kit de Substituição Completo
-                    <span className="block text-sm md:text-base font-semibold text-[#27AE60] mt-1">
-                      ✨ Mantenha como novo por mais de 1 ano
+                  <h3 className="text-xl md:text-2xl font-black text-foreground leading-tight">
+                    Kit de Substituição Completo (opcional)
+                    <span className="block text-sm md:text-base font-semibold text-muted-foreground mt-1">
+                      Use se quiser manutenção prolongada sem pensar em reposições
                     </span>
                   </h3>
                   
                   {/* Badge de recomendação */}
-                  <div className="bg-gradient-to-r from-secondary/20 to-[#FF6B35]/20 border border-secondary/30 rounded-full px-3 py-1 flex-shrink-0">
-                    <span className="text-xs font-bold text-secondary">
-                      <Shield className="w-3 h-3 inline mr-1" />
-                      RECOMENDADO
-                    </span>
+                  <div className="bg-muted text-foreground/80 border border-border rounded-full px-3 py-1 flex-shrink-0 text-xs font-semibold">
+                    <Shield className="w-3 h-3 inline mr-1" />
+                    Opcional
                   </div>
                 </div>
                 
                 <p className="text-sm sm:text-base text-muted-foreground leading-relaxed">
-                  <strong className="text-foreground">⚠️ IMPORTANTE:</strong> Evite a frustração de ficar sem filtros ou escovas! 
-                  Este kit garante performance máxima e <span className="text-[#27AE60] font-semibold">economia de até R$ 84</span> 
-                  comparado a comprar separadamente.
+                  O aspirador já vem pronto para uso. Adicione o kit apenas se quiser manter a performance máxima por 1 ano sem se preocupar em comprar filtros/escovas depois.
                 </p>
               </div>
             </div>
@@ -96,10 +82,10 @@ export function OrderBump({ selected, onToggle }: OrderBumpProps) {
                 priority
               />
               
-              {/* Overlay com informações */}
-              <div className="absolute top-3 left-3 bg-white/90 backdrop-blur-sm rounded-lg px-3 py-2 border border-border/50">
-                <p className="text-xs font-bold text-foreground">Kit Original Dreame</p>
-                <p className="text-[10px] text-muted-foreground">Qualidade Garantida</p>
+              {/* Overlay com informações - reposicionado para não cobrir a imagem */}
+              <div className="absolute bottom-3 left-1/2 -translate-x-1/2 bg-white/95 backdrop-blur-sm rounded-lg px-2.5 py-1.5 border border-border/30 shadow-sm text-center min-w-[140px]">
+                <p className="text-[11px] font-bold text-foreground leading-tight">Kit Original Dreame</p>
+                <p className="text-[10px] text-muted-foreground leading-tight">Qualidade garantida</p>
               </div>
             </div>
 
@@ -136,7 +122,7 @@ export function OrderBump({ selected, onToggle }: OrderBumpProps) {
             </div>
 
             {/* Seção de preços e economia */}
-            <div className="bg-gradient-to-br from-[#27AE60]/5 via-white to-[#27AE60]/5 rounded-2xl p-5 md:p-6 border-2 border-[#27AE60]/20">
+            <div className="bg-gradient-to-br from-[#27AE60]/5 via-white to-[#27AE60]/5 rounded-2xl p-5 md:p-6 border border-[#27AE60]/20">
               <div className="flex flex-col lg:flex-row lg:items-center gap-4 lg:gap-6">
                 
                 {/* Preços */}
@@ -171,9 +157,9 @@ export function OrderBump({ selected, onToggle }: OrderBumpProps) {
             </div>
 
             {/* Alerta de urgência simplificado */}
-            <div className="bg-gradient-to-r from-[#E53935]/10 to-[#C62828]/10 border border-[#E53935]/20 rounded-xl p-4">
+            <div className="bg-muted/50 border border-border rounded-xl p-4">
               <p className="text-sm font-bold text-foreground text-center">
-                ⚡ Oferta válida apenas para compras feitas hoje junto com o aspirador
+                Oferta opcional: adicione agora ou siga apenas com o aspirador.
               </p>
             </div>
 
@@ -182,11 +168,10 @@ export function OrderBump({ selected, onToggle }: OrderBumpProps) {
               <Sparkles className="w-5 h-5 md:w-6 md:h-6 text-secondary flex-shrink-0 mt-1" />
               <div>
                 <p className="text-sm sm:text-base md:text-lg text-foreground font-bold leading-relaxed mb-1">
-                  🎯 Garantia TOTAL de Performance
+                  Garantia de performance (opcional)
                 </p>
                 <p className="text-xs md:text-sm text-muted-foreground leading-relaxed">
-                  Com o kit, você mantém a potência de sucção em <strong>99,7% da eficiência original</strong> por mais de um ano, 
-                  garantindo limpeza profissional sempre!
+                  O kit ajuda a manter até 99,7% da eficiência por mais de um ano. Sem o kit, o aspirador já chega pronto para uso imediato.
                 </p>
               </div>
             </div>
@@ -195,13 +180,8 @@ export function OrderBump({ selected, onToggle }: OrderBumpProps) {
 
         {/* Indicador de seleção premium */}
         {selected && (
-          <div className="bg-gradient-to-r from-[#27AE60] to-[#229954] text-white text-center py-4 px-6 font-bold text-sm md:text-base animate-fade-in shadow-inner">
-            <div className="flex items-center justify-center gap-2">
-              <Check className="w-5 h-5" />
-              <span>✨ Kit de Substituição adicionado com sucesso!</span>
-              <Sparkles className="w-5 h-5" />
-            </div>
-            <p className="text-xs mt-1 text-white/90">Você economizou R$ 84 e garantiu 1+ ano de uso otimizado</p>
+          <div className="bg-muted text-foreground text-center py-4 px-6 font-bold text-sm md:text-base animate-fade-in rounded-b-3xl border-t border-border">
+            <span>Kit adicionado. Você pode remover a qualquer momento antes de finalizar.</span>
           </div>
         )}
       </div>

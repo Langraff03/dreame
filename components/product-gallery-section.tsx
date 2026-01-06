@@ -24,6 +24,9 @@ export function ProductGallerySection() {
           <h2 className="text-3xl md:text-5xl font-black text-foreground mb-3 text-balance">
             Detalhes do <span className="text-primary">DREAME H12 PRO</span>
           </h2>
+          <p className="text-muted-foreground max-w-2xl mx-auto text-sm md:text-base">
+            Visualize o aspirador completo antes de decidir o kit. O foco é garantir o melhor preço no DREAME H12 PRO.
+          </p>
         </div>
 
         <div className="grid gap-6 lg:grid-cols-[220px_1fr] items-start">

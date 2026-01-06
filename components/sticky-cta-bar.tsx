@@ -78,7 +78,7 @@ export function StickyCtaBar() {
           </div>
           <div>
             <p className="text-foreground font-black text-base">Restam {stockCount} unidades</p>
-            <p className="text-[#E53935] text-sm font-bold">🔥 Oferta por tempo limitado!</p>
+            <p className="text-[#E53935] text-sm font-bold">Oferta por tempo limitado</p>
           </div>
         </div>
 
