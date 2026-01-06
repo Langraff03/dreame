@@ -193,20 +193,6 @@ export function OfferSection() {
                 oferta
               </p>
 
-              <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 sm:gap-4 text-sm md:text-sm text-foreground">
-                <div className="flex items-center justify-center gap-2 bg-white border-2 border-primary/30 rounded-lg px-3 py-2 shadow-sm text-center">
-                  <span className="font-semibold text-primary">Pix</span>
-                  <span className="font-medium">tem 5% off extra</span>
-                </div>
-                <div className="flex items-center justify-center gap-2 bg-white border-2 border-primary/30 rounded-lg px-3 py-2 shadow-sm text-center">
-                  <span className="font-semibold text-primary">Envio</span>
-                  <span className="font-medium">Brasil: 7 a 15 dias úteis</span>
-                </div>
-                <div className="flex items-center justify-center gap-2 bg-white border-2 border-primary/30 rounded-lg px-3 py-2 shadow-sm text-center">
-                  <span className="font-semibold text-primary">Garantia</span>
-                  <span className="font-medium">total + suporte em português</span>
-                </div>
-              </div>
             </div>
 
             <div className="mt-10 md:mt-12 grid grid-cols-1 sm:grid-cols-3 gap-4 md:gap-6">
