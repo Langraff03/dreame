@@ -1,0 +1,31 @@
+User-agent: HTTrack
+Disallow: /
+
+User-agent: WebCopier
+Disallow: /
+
+User-agent: SaveWeb2Zip
+Disallow: /
+
+User-agent: Teleport Pro
+Disallow: /
+
+User-agent: Offline Explorer
+Disallow: /
+
+User-agent: SiteSucker
+Disallow: /
+
+User-agent: WebZip
+Disallow: /
+
+User-agent: WebStripper
+Disallow: /
+
+User-agent: WebClone
+Disallow: /
+
+User-agent: *
+Disallow: /private/
+Disallow: /temp/
+Disallow: /cgi-bin/
