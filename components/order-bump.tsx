@@ -103,19 +103,16 @@ export function OrderBump({ selected, onToggle }: OrderBumpProps) {
               
               <div className="grid gap-3 md:gap-3.5">
                 {[
-                  { item: "4x Filtros HEPA de Alta Eficiência", value: "R$ 49 cada" },
-                  { item: "2x Escovas Roladoras Duplas Premium", value: "R$ 39 cada" },
-                  { item: "Kit de Limpeza e Manutenção", value: "R$ 25" },
-                  { item: "Manual de Troca Ilustrado + Suporte", value: "R$ 15" },
-                ].map((benefit, index) => (
-                  <div key={index} className="flex items-center justify-between gap-3 group/item">
-                    <div className="flex items-center gap-3 flex-1">
-                      <div className="w-5 h-5 md:w-6 md:h-6 rounded-full bg-[#27AE60]/15 flex items-center justify-center flex-shrink-0 group-hover/item:bg-[#27AE60]/25 transition-colors">
-                        <Check className="w-3 h-3 md:w-3.5 md:h-3.5 text-[#27AE60] font-bold" />
-                      </div>
-                      <span className="text-sm sm:text-base text-foreground font-medium flex-1">{benefit.item}</span>
+                  "4x Filtros HEPA de Alta Eficiência",
+                  "2x Escovas Roladoras Duplas Premium",
+                  "Kit de Limpeza e Manutenção",
+                  "Manual de Troca Ilustrado + Suporte",
+                ].map((item, index) => (
+                  <div key={index} className="flex items-center gap-3 group/item">
+                    <div className="w-5 h-5 md:w-6 md:h-6 rounded-full bg-[#27AE60]/15 flex items-center justify-center flex-shrink-0 group-hover/item:bg-[#27AE60]/25 transition-colors">
+                      <Check className="w-3 h-3 md:w-3.5 md:h-3.5 text-[#27AE60] font-bold" />
                     </div>
-                    <span className="text-xs text-muted-foreground font-semibold">{benefit.value}</span>
+                    <span className="text-sm sm:text-base text-foreground font-medium">{item}</span>
                   </div>
                 ))}
               </div>
@@ -137,7 +134,6 @@ export function OrderBump({ selected, onToggle }: OrderBumpProps) {
                     <span className="text-base md:text-lg font-bold text-muted-foreground">Por apenas</span>
                     <span className="text-4xl md:text-5xl font-black text-[#27AE60]">R$ 19,90</span>
                   </div>
-                  <p className="text-sm text-muted-foreground mt-1">ou 6x de R$ 3,32 sem juros</p>
                 </div>
 
                 {/* Cards de economia */}
