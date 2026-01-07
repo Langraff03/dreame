@@ -8,8 +8,6 @@ const galleryItems = [
   { src: "/images/produto-fotos-optimized/2.jpg" },
   { src: "/images/produto-fotos-optimized/3.jpg" },
   { src: "/images/produto-fotos-optimized/5.jpg" },
-  { src: "/images/produto-fotos-optimized/6.jpg" },
-  { src: "/images/produto-fotos-optimized/7.jpg" },
   { src: "/images/produto-fotos-optimized/8.jpg" },
 ]
 
