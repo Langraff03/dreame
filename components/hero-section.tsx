@@ -1,13 +1,24 @@
 ﻿"use client"
 
 import Image from "next/image"
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import { Button } from "@/components/ui/button"
 import { ShieldCheck, Truck, Star, Zap, Award } from "lucide-react"
 import { CheckoutModal } from "./checkout-modal"
+import { sharedState } from "./urgency-top-bar"
 
 export function HeroSection() {
   const [showCheckout, setShowCheckout] = useState(false)
+  const [heroStock, setHeroStock] = useState(sharedState.stockCount)
+
+  useEffect(() => {
+    sharedState.init()
+    setHeroStock(sharedState.stockCount)
+    const unsubscribe = sharedState.subscribe(() => setHeroStock(sharedState.stockCount))
+    return () => {
+      unsubscribe()
+    }
+  }, [])
 
   return (
     <section className="relative min-h-screen flex flex-col bg-gradient-to-b from-[#0B0F14] via-[#0D1117] to-[#0B0F14] pt-10 md:pt-10">
@@ -56,8 +67,8 @@ export function HeroSection() {
 
         <div className="inline-flex items-center gap-2 md:gap-2.5 bg-gradient-to-r from-[#E53935] to-[#C62828] border border-[#E53935]/40 text-white px-4 md:px-6 py-2.5 md:py-3 rounded-full text-xs md:text-sm font-bold mb-6 md:mb-8 shadow-lg shadow-[#E53935]/40">
           <Zap className="w-4 h-4 md:w-5 md:h-5" />
-          <span className="hidden sm:inline">ÚLTIMAS 47 UNIDADES COM 79% OFF</span>
-          <span className="sm:hidden">47 UNIDADES - 79% OFF</span>
+          <span className="hidden sm:inline">ÚLTIMAS {heroStock} UNIDADES COM 79% OFF</span>
+          <span className="sm:hidden">{heroStock} UNIDADES - 79% OFF</span>
         </div>
 
         <h1 className="text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-black tracking-tighter text-white max-w-5xl leading-[1.1] text-balance mb-4 md:mb-6 px-2">

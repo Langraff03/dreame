@@ -143,11 +143,9 @@ export function OfferSection() {
                 </div>
               </div>
 
-              <div className="flex items-center justify-center gap-2 md:gap-2.5 text-sm md:text-lg bg-gradient-to-r from-primary/5 to-secondary/5 rounded-xl px-4 md:px-6 py-3 md:py-4 border border-primary/10">
+              <div className="flex items-center justify-center gap-2 md:gap-2.5 text-sm md:text-lg bg-primary/5 rounded-xl px-4 md:px-6 py-3 md:py-4 border border-primary/10">
                 <CreditCard className="w-5 h-5 md:w-6 md:h-6 text-primary flex-shrink-0" />
-                <span className="text-muted-foreground text-center">
-                  ou <strong className="text-foreground font-bold">12x de R$ 9,16</strong> sem juros
-                </span>
+                <span className="text-foreground text-center font-bold">Oferta válida somente para pagamento via PIX</span>
               </div>
             </div>
 
@@ -162,10 +160,6 @@ export function OfferSection() {
             </div>
 
             <div className="space-y-4 md:space-y-5">
-              <div className="w-full text-sm sm:text-base md:text-lg py-4 sm:py-5 bg-primary/10 text-primary font-bold border border-primary/20 shadow-sm rounded-xl md:rounded-2xl text-center leading-tight">
-                Oferta válida somente para pagamento via PIX
-              </div>
-
               {/* CTA principal abre modal para escolha de cor e kit */}
               <Button
                 size="lg"

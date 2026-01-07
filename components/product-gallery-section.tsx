@@ -1,18 +1,24 @@
 "use client"
 
 import Image from "next/image"
-import { useState } from "react"
+import { useRef, useState } from "react"
 
 const galleryItems = [
-  { src: "https://m.media-amazon.com/images/I/619MiWnGTAL._AC_SY879_.jpg" },
-  { src: "https://m.media-amazon.com/images/I/81qQNe1x4nL._AC_SY879_.jpg" },
-  { src: "https://m.media-amazon.com/images/I/81a07NICy-L._AC_SY879_.jpg" },
-  { src: "https://m.media-amazon.com/images/I/413zfufilqL._AC_SY879_.jpg" },
-  { src: "https://m.media-amazon.com/images/I/41qWzWbsxKL._AC_SY879_.jpg" },
+  { src: "/images/produto-fotos-optimized/1.jpg" },
+  { src: "/images/produto-fotos-optimized/2.jpg" },
+  { src: "/images/produto-fotos-optimized/3.jpg" },
+  { src: "/images/produto-fotos-optimized/5.jpg" },
+  { src: "/images/produto-fotos-optimized/6.jpg" },
+  { src: "/images/produto-fotos-optimized/7.jpg" },
+  { src: "/images/produto-fotos-optimized/8.jpg" },
 ]
 
 export function ProductGallerySection() {
   const [activeIndex, setActiveIndex] = useState(0)
+  const touchStart = useRef<number | null>(null)
+
+  const handleNext = () => setActiveIndex((prev) => (prev + 1) % galleryItems.length)
+  const handlePrev = () => setActiveIndex((prev) => (prev - 1 + galleryItems.length) % galleryItems.length)
 
   return (
     <section className="py-16 md:py-20 px-4 md:px-6 bg-white">
@@ -47,6 +53,7 @@ export function ProductGallerySection() {
                     className="object-cover"
                     sizes="(min-width: 1024px) 200px, (min-width: 768px) 160px, 120px"
                     loading="lazy"
+                    draggable={false}
                   />
                 </div>
               </button>
@@ -55,14 +62,25 @@ export function ProductGallerySection() {
 
           <div className="rounded-2xl border border-border overflow-hidden shadow-lg bg-gradient-to-br from-white to-muted/40">
             <div className="w-full h-[420px] md:h-[520px] bg-white flex items-center justify-center">
-              <div className="relative w-full h-full">
+              <div
+                className="relative w-full h-full touch-pan-y"
+                onTouchStart={(e) => (touchStart.current = e.touches[0].clientX)}
+                onTouchEnd={(e) => {
+                  if (touchStart.current === null) return
+                  const delta = e.changedTouches[0].clientX - touchStart.current
+                  if (delta > 30) handlePrev()
+                  if (delta < -30) handleNext()
+                  touchStart.current = null
+                }}
+              >
                 <Image
                   src={galleryItems[activeIndex].src}
                   alt="DREAME H12 PRO"
                   fill
-                  className="object-contain"
+                  className="object-contain select-none"
                   sizes="(min-width: 1280px) 900px, (min-width: 1024px) 720px, (min-width: 768px) 640px, 100vw"
                   priority={activeIndex === 0}
+                  draggable={false}
                 />
               </div>
             </div>
